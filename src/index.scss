@@ -1,0 +1,26 @@
+// @import 'variables';  // using here doesn't make it available in later scss files...
+// @import 'normalize.css';  //css reset per https://create-react-app.dev/docs/adding-css-reset
+                    // though says to put straight into .css file ...
+@import 'utilities';
+
+body {
+  @include set-background-color($primary-background);
+  font-family: $font-stack;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+// body {
+//   margin: 0;
+//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+//     sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//     monospace;
+// }

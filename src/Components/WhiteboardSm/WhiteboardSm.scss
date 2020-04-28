@@ -1,0 +1,47 @@
+@import '../../utilities';
+
+.WhiteboardSm {
+  cursor: pointer;  // for testing purposes
+  background: white;
+  // margin-top: 30px;
+  // margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  flex: 1 1 0;
+  // max-width: 600px;
+  min-width: 300px;
+  // width: 400px;
+  border-top: 10px solid black;
+  border-bottom: 10px solid black;
+  border-left: 10px solid black;
+  border-right: 10px solid black;
+  box-shadow: inset 0 0 2px rgba(0,0,0, 1),
+              0 0 15px black;
+}
+//Using ::after and ::before to create wedges on corners, and utilizing box-shadow as
+// border. Border-image was rough to deal with- avoiding for now.
+// ::before -> side borders
+.WhiteboardSm::before {
+  content: '';
+  position: absolute;
+  // z-index: 200;
+  height: calc(100% - 5px); // to get corner wedge accentuated
+  // height: calc(100%); // to get corner wedge accentuated
+  width: 100%;  //based on content-width, not border...why???
+  box-shadow: 
+    2px 0 silver, 4px 0 gray, 6px 0 silver, 8px 0 gray, 10px 0 silver,
+    -2px 0 silver, -4px 0 gray, -6px 0 silver, -8px 0 gray, -10px 0 silver;
+}
+// :: after -> top/bottom borders
+.WhiteboardSm::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 5px);
+  box-shadow: 
+    0 2px silver, 0 4px gray, 0 6px silver, 0 8px gray, 0 10px silver,
+    0 -2px silver, 0 -4px gray, 0 -6px silver, 0 -8px gray, 0 -10px silver;
+}

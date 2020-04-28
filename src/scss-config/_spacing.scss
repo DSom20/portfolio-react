@@ -1,0 +1,66 @@
+// Margin & padding classes
+// access inside other rulesets with eg, @extend .my-5
+$spaceamounts: (1,2,3,4,5);
+
+@each $space in $spaceamounts {
+  .m-#{$space} {
+    margin: #{$space / 2}rem;
+  }
+
+  .my-#{$space} {
+    margin-top: #{$space / 2}rem;
+    margin-bottom: #{$space / 2}rem;
+  }
+  .mt-#{$space} {
+    margin-top: #{$space / 2}rem;
+  }
+  .mb-#{$space} {
+    margin-bottom: #{$space / 2}rem;
+  }
+
+  .mx-#{$space} {
+    margin-left: #{$space / 2}rem;
+    margin-right: #{$space / 2}rem;
+  }
+  .ml-#{$space} {
+    margin-left: #{$space / 2}rem;
+  }
+  .mr-#{$space} {
+    margin-right: #{$space / 2}rem;
+  }
+
+  .p-#{$space} {
+    padding: #{$space / 2}rem;
+  }
+
+  .py-#{$space} {
+    padding-top: #{$space / 2}rem;
+    padding-bottom: #{$space / 2}rem;
+  }
+  .pt-#{$space} {
+    padding-top: #{$space / 2}rem;
+  }
+  .pb-#{$space} {
+    padding-bottom: #{$space / 2}rem;
+  }
+
+  .px-#{$space} {
+    padding-left: #{$space / 2}rem;
+    padding-right: #{$space / 2}rem;
+  }
+  .pl-#{$space} {
+    padding-left: #{$space / 2}rem;
+  }
+  .pr-#{$space} {
+    padding-right: #{$space / 2}rem;
+  }
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

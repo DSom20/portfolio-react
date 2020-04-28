@@ -1,0 +1,44 @@
+@import '../../utilities';
+
+.WhiteboardMd {
+  // margin-top: 10px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: none;
+  // align-self: stretch;
+  // flex: 1 1 auto;
+  width: 900px;
+}
+
+.WhiteboardMd:not(:nth-of-type(1)) {
+  margin-top: 20px;
+}
+
+.WhiteboardMd::after {
+  z-index: 100;
+  content: '';
+  display: block;
+  position: absolute;
+  top: -5px;
+  height: calc(100% + 9px);
+  width: calc(100%);
+  border-top: 5px solid darken(silver, 5%);
+  border-bottom: 5px solid darken(silver, 5%);
+  box-shadow: 0 0 4px black, 
+              inset 0px 0px 7px black;
+  pointer-events: none; // allows elements underneath (w/ lower z-index) to be hovered/clicked
+}
+// Make Odd boards seem higher than even boards
+.WhiteboardMd:nth-of-type(2n+1) {
+  z-index: 10;
+  box-shadow: 0 0 10px 1px black, 
+              inset 0 0 7px black;
+}
+.WhiteboardMd:nth-of-type(2n)::after {
+  border-top: 5px solid darken(silver, 15%);
+  border-bottom: 5px solid darken(silver, 15%);
+  box-shadow: 0 0 4px black, 
+              inset 0px 0px 13px black;
+  pointer-events: none; // allows elements underneath (w/ lower z-index) to be hovered/clicked
+}
