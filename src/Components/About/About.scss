@@ -1,0 +1,37 @@
+.About {
+  &-profile-image-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.7);
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  // Tape to hold up pic
+  &-profile-image-container::before {
+    content: '';
+    position: absolute;
+    // right: 1px;
+    // top: -11px;
+    left: 1px;
+    top: -11px;
+    width: 10px;
+    height: 40px;
+    background-color: lighten(rgb(73, 92, 233), 8%);  //#6d7ded
+    transform: rotate(45deg)
+  }
+  &-profile-image-container::after {
+    content: '';
+    position: absolute;
+    right: 1px;
+    top: -11px;
+    width: 10px;
+    height: 40px;
+    background-color: #6d7ded;
+    transform: rotate(-45deg)
+  }
+
+}

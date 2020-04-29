@@ -1,18 +1,27 @@
 @import '../../utilities';
 
+// Not sure what's the best way to handle this, maybe just send it in as prop style/class when calling Component
+// Want 
+.WhiteboardMd {
+  .WhiteboardSm {
+    min-width: 300px;
+  }
+}
+
 .WhiteboardSm {
-  cursor: pointer;  // for testing purposes
+  // cursor: pointer;  // for testing purposes
   background: white;
   // margin-top: 30px;
   // margin-bottom: 20px;
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  height: 200px;
+  min-height: 200px;
   flex: 1 1 0;
   // max-width: 600px;
-  min-width: 300px;
+  min-width: 100%;
   // width: 400px;
   border-top: 10px solid black;
   border-bottom: 10px solid black;
@@ -34,6 +43,7 @@
   box-shadow: 
     2px 0 silver, 4px 0 gray, 6px 0 silver, 8px 0 gray, 10px 0 silver,
     -2px 0 silver, -4px 0 gray, -6px 0 silver, -8px 0 gray, -10px 0 silver;
+  pointer-events: none;
 }
 // :: after -> top/bottom borders
 .WhiteboardSm::after {
@@ -44,4 +54,5 @@
   box-shadow: 
     0 2px silver, 0 4px gray, 0 6px silver, 0 8px gray, 0 10px silver,
     0 -2px silver, 0 -4px gray, 0 -6px silver, 0 -8px gray, 0 -10px silver;
+  pointer-events: none;
 }

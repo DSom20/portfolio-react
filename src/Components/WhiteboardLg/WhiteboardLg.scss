@@ -56,6 +56,8 @@
 
 @include media-breakpoint-down(sm) {
   .WhiteboardLg {
-    width: calc(100vw - 20px); // - 20px to account for ::after border
+    // Tried 100vw first, but y scrollbar popping up messed it up. Use 100% instead.
+    // width: calc(100vw - 20px); // - 20px to account for ::after border
+    width: calc(100% - 20px);
   }
 }

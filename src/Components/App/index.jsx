@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import CorkEdge from '../CorkEdge';
+import WhiteboardXl from '../WhiteboardXl';
 import Nav from '../Nav';
 import Routes from '../Routes';
 import Footer from '../Footer';
@@ -9,9 +11,20 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Nav />
-        <Routes />
-        <Footer />
+
+        <CorkEdge>
+          <Nav />
+        </CorkEdge>
+
+        <WhiteboardXl>
+          <Routes />
+        </WhiteboardXl>
+        
+
+        <CorkEdge>
+          <Footer />
+        </CorkEdge>
+
       </div>
     </BrowserRouter>
   );

@@ -3,7 +3,7 @@ import './WhiteboardLg.scss';
 
 function WhiteboardLg(props) {
   return (
-    <div className='WhiteboardLg'>
+    <div className={'WhiteboardLg ' + (props.className || '')} id={props.id} style={props.style}>
       {props.children}
     </div>
   )

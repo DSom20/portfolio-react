@@ -29,6 +29,7 @@
               inset 0px 0px 7px black;
   pointer-events: none; // allows elements underneath (w/ lower z-index) to be hovered/clicked
 }
+
 // Make Odd boards seem higher than even boards
 .WhiteboardMd:nth-of-type(2n+1) {
   z-index: 10;
@@ -40,5 +41,4 @@
   border-bottom: 5px solid darken(silver, 15%);
   box-shadow: 0 0 4px black, 
               inset 0px 0px 13px black;
-  pointer-events: none; // allows elements underneath (w/ lower z-index) to be hovered/clicked
 }

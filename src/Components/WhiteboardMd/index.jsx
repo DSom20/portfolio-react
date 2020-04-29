@@ -3,7 +3,7 @@ import './WhiteboardMd.scss';
 
 function WhiteboardMd(props) {
   return (
-    <div className='WhiteboardMd'>
+    <div className={'WhiteboardMd ' + (props.className || '')} id={props.id} style={props.style}>
       {props.children}
     </div>
   )

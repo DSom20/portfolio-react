@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.scss';
 import Vara from '../../scripts/vara.js';
 import satisfyFontObj from "../../scripts/satisfySL.json"
@@ -8,38 +9,40 @@ import WhiteboardSm from '../WhiteboardSm';
 
 function Home() {
 
-  useEffect(() => {
-    new Vara("#Home-vara-container-1",  satisfyFontObj,[{
-      text:"Hi!",
-      textAlign: "center"
-    }],{
-      fontSize: 46
-    })
-    console.log({satisfyFontObj});
+  // useEffect(() => {
+  //   new Vara("#Home-vara-container-1",  satisfyFontObj,[{
+  //     text:"Hi!",
+  //     textAlign: "center"
+  //   }],{
+  //     fontSize: 46
+  //   })
+  //   console.log({satisfyFontObj});
 
-  }, [])
+  // }, [])
   return (
-    <div className="Home">
-      <WhiteboardLg >
-        <WhiteboardMd >
-          <WhiteboardSm id="wb-1">
-            <h1 id="Home-vara-container-1"></h1>
-          </WhiteboardSm>
-          <WhiteboardSm id="wb-3">
-            <p>This is board 3</p>
-          </WhiteboardSm>
-        </WhiteboardMd>
-        <div className="Home-whiteboard-container-horizontal" id="wbh-2">
-          <div className="Home-whiteboard" id="wb-2">
-            {/* <h1 id="Home-vara-container-1"></h1> */}
-            <p>I'm David</p>
-          </div>
-          <div className="Home-whiteboard" id="wb-4">
-            <p>This is board 4</p>
-          </div>
-        </div>
-      </WhiteboardLg>
-    </div>
+    <WhiteboardLg className="Home">
+      {/* <WhiteboardMd > */}
+        <WhiteboardSm id="wb-1">
+          {/* <h1 id="Home-vara-container-1"></h1> */}
+          <h1>Hi!</h1>
+          <h1>I'm David</h1>
+          <h1>I'm a software engineer</h1>
+        </WhiteboardSm>
+        <WhiteboardSm id="wb-3">
+          {/* <p>This is board 3</p> */}
+          <h2>Check out some of my <Link exact to='/projects'>Projects</Link></h2>
+          <h2>Or read a bit <Link exact to='/about'>About Me</Link></h2>
+        </WhiteboardSm>
+      {/* </WhiteboardMd> */}
+      {/* <WhiteboardMd id="wbh-2"> */}
+        {/* <WhiteboardSm id="wb-2">
+          <p>I'm David</p>
+        </WhiteboardSm>
+        <WhiteboardSm id="wb-4">
+          <p>This is board 4</p>
+        </WhiteboardSm> */}
+      {/* </WhiteboardMd> */}
+    </WhiteboardLg>
     // <div className="Home">
     //   <div className="Home-whiteboard-container">
     //     <div className="Home-whiteboard-container-horizontal">

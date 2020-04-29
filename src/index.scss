@@ -3,14 +3,23 @@
                     // though says to put straight into .css file ...
 @import 'utilities';
 
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
 body {
   @include set-background-color($primary-background);
   font-family: $font-stack;
 }
 
-*, *::after, *::before {
-  box-sizing: border-box;
-}
+// @include media-breakpoint-down(sm) {
+//   // Meant to always have y-scroll bar there so that i can always have the WhiteboardLg
+//   // border flush. Whiteboard lg width at this size is 100vw
+//   // body {
+//   //   overflow-y: scroll; 
+//   // }
+// }
+
 // body {
 //   margin: 0;
 //   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
