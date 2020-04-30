@@ -3,14 +3,41 @@ import './About.scss';
 import WhiteboardLg from '../WhiteboardLg';
 import WhiteboardMd from '../WhiteboardMd';
 import WhiteboardSm from '../WhiteboardSm';
+import ProjectorScreen from '../ProjectorScreen';
+import ImageWindow from '../ImageWindow';
+import ImageLineup from '../ImageLineup';
+import ImageSlide from '../ImageSlide';
+
 import profilePic from "../../images/profile/david_profile_pic_square_800.jpg";
+import universityIcon from "../../images/aboutme/icons8-university-100.png";
+import booksIcon from "../../images/aboutme/icons8-books-2-100.png";
+import ambulanceIcon from "../../images/aboutme/icons8-ambulance-reverse-100.png";
+import graduationIcon from "../../images/aboutme/icons8-graduation-cap-100.png";
+import hospitalIcon from "../../images/aboutme/icons8-hospital-100.png";
+import googleIcon from "../../images/aboutme/icons8-google-code-100.png";
+import lockIcon from "../../images/aboutme/icons8-lock-100-2.png";
+import gameIcon from "../../images/aboutme/icons8-strategy-game-100.png"; 
+import basketballIcon from "../../images/aboutme/icons8-basketball-net-100.png";
+import volleyballIcon from "../../images/aboutme/icons8-volleyball-player-100.png"; 
+import iceCreamIcon from "../../images/aboutme/icons8-melting-ice-cream-100.png";
+import javaIcon from "../../images/aboutme/icons8-java-100.png"; 
+import racketIcon from "../../images/aboutme/Racket-logo.svg"; 
+import cIcon from "../../images/aboutme/icons8-c-programming-100.png"; 
+import githubIcon from "../../images/aboutme/icons8-github-100.png"; 
+import htmlIcon from "../../images/aboutme/icons8-html-5-100.png";
+import cssIcon from "../../images/aboutme/icons8-css3-100.png"; 
+import javascriptIcon from "../../images/aboutme/icons8-javascript-logo-100.png";
+
+import weddingRingsIcon from "../../images/aboutme/icons8-wedding-rings-100.png"
+
 
 function About() {
   return (
     <WhiteboardLg className="About">
-      <div className="About-profile-image-container">
+      {/* p rather than div to allow :nth-child to work properly in WhiteboardMd css */}
+      <p className="About-profile-image-container">
         <img  src={profilePic} alt="headshot of david sommers" height="800px" width="800px"/>
-      </div>
+      </p>
       <WhiteboardMd >
         <WhiteboardSm id="wb-1">
           <h3>What do I do?</h3>
@@ -21,36 +48,54 @@ function About() {
           </p>
         </WhiteboardSm>
         <WhiteboardSm id="wb-3">
-
-          <p>This is board 3</p>
+          <ProjectorScreen frame>
+            <ImageWindow>
+              <ImageLineup className="About-coding-images">
+                <ImageSlide src={javaIcon} alt="java logo"/>
+                <ImageSlide src={racketIcon} alt="racket logo"/>
+                <ImageSlide src={cIcon} alt="c logo"/>
+                <ImageSlide src={githubIcon} alt="github logo"/>
+                <ImageSlide src={htmlIcon} alt="html logo"/>
+                <ImageSlide src={cssIcon} alt="css logo"/>
+                <ImageSlide src={javascriptIcon} alt="javascript logo"/>
+                <ImageSlide src={javaIcon} alt="java logo"/>
+              </ImageLineup>
+            </ImageWindow>
+          </ProjectorScreen>
         </WhiteboardSm>
       </WhiteboardMd>
       <WhiteboardMd id="wbh-2">
         <WhiteboardSm id="wb-2">
+          <ProjectorScreen frame>
+            <ImageWindow className="About-career-window">
+              <ImageLineup className="About-career-images" flexRow>
+                <ImageSlide placeholder={true}/>
+                <ImageSlide src={booksIcon} alt="icon of university building" />
+                <ImageSlide src={graduationIcon} alt="icon of graduation cap"/>
+                <ImageSlide placeholder={true}/>
+                <ImageSlide src={ambulanceIcon} alt="icon of ambulance"/>
+                <ImageSlide src={hospitalIcon} alt="icon of hospital"/>
+                <ImageSlide placeholder={true}/>
+                <ImageSlide src={googleIcon} alt="icon of computer with code on screen"/>
+              </ImageLineup>
+            </ImageWindow>
+          </ProjectorScreen>
+        </WhiteboardSm>
+        <WhiteboardSm id="wb-4">
           <h3>What have I done?</h3>
-          <p>I studied humanities at Pepperdine to explore the big ideas.
-            Graduated Summa Cum Laude. Then, in search of an adventure, an opportunity to help people, and a secure career path,  I became an EMT. Say what? Yeah. First, I worked on an ambulance, then in SF General's emergency department. Along the way, I had the privilege of working with tons of awesome people.
+          <p>Studied humanities at Pepperdine to explore the big ideas.
+            Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. Say what? Yeah. First on an ambulance, then in SF General's emergency department. Got to work with tons of awesome people along the way. Then I pursued nursing for a bit.
           </p>
           <p>
-          Then, in search of passion, I looked into software engineering. Did some self-study to confirm I loved it, then dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a decade-old Ruby on Rails site from v2 to v5 and incorporating React into the frontend.
+          Craving for a career I was passionate about, I looked into software engineering in my spare time. Did some self-study to confirm I loved it, then made the big switch! Dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
           </p>
           <p>
           Now, I'm on the hunt for new coding opportunities!
           </p>
-          {/* <p>
-            I was climbing the ladder to become a nurse, but was yearning for a career I intrinsically enjoyed. Computer science had always seemed intriguing, so I gave some free online courses a shot and loved it! Thus, this time in pursuit of passion, I became a software engineer.
-          </p>
-          <p>
-            I went to Rithm's full stack immersive bootcamp in SF, focusing on JavaScript, Python, Flask, Node, Express, PostgreSQL, React, and data structures / algorithms.
-          </p>
-          <p>  
-            Towards the end of Rithm, I had the privilege of interning with JumpOffCampus, Inc, helping to overhaul the nearly decade old website from Ruby on Rails v2 to v5 and incorporating React into the frontend. Given that Ruby on Rails was new to me, it was exciting to see I could pick up new tech and contribute quickly to an existing codebase.
-          </p>
-          <p>
-            Now I'm on the hunt for new opportunities in software engineering. 
-          </p> */}
         </WhiteboardSm>
-        <WhiteboardSm id="wb-4">
+      </WhiteboardMd>
+      <WhiteboardMd>
+        <WhiteboardSm>
           <h3>What else do I do?</h3>
           <p>
             I enjoy playing basketball and volleyball, particularly the dunking and spiking parts. 
@@ -58,11 +103,27 @@ function About() {
             I am a board game enthusiast (and have been known to dabble in the video type as well). 
             I enjoy escape rooms. 
             I enjoy ice cream.
-            And I enjoy being a husband.
+            And I enjoy being married to my amazing wife.
           </p>
+        </WhiteboardSm>
+        <WhiteboardSm>
+          <ProjectorScreen frame>
+              <ImageWindow>
+                  <ImageLineup className="About-interests-images">
+                    <ImageSlide src={basketballIcon} alt="icon of basketball hoop"/>
+                    <ImageSlide src={volleyballIcon} alt="icon of volleyball player"/>
+                    <ImageSlide src={gameIcon} alt="icon of strategy game"/>
+                    <ImageSlide src={lockIcon} alt="icon of keylock"/>
+                    <ImageSlide src={iceCreamIcon} alt="icon of ice cream"/>
+                    <ImageSlide src={weddingRingsIcon} alt="icon of wedding rings"/>
+                    <ImageSlide src={basketballIcon} alt="icon of basketball hoop"/>
+                  </ImageLineup>
+              </ImageWindow>
+          </ProjectorScreen>
         </WhiteboardSm>
       </WhiteboardMd>
     </WhiteboardLg>
+    
   )
 }
 

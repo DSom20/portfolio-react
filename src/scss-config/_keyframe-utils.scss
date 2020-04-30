@@ -1,0 +1,24 @@
+/*
+Purpose: Creates a @keyframe that slides an image-lineup up at even intervals
+  Notes: Expects the image lineup to have its first-image doubled as its (extra) last-image
+Params:
+  $name: to give @keyframe
+  $num-images: number of images in the lineup, NOT counting the duplicate end image
+  $image-height: number WITH unit
+*/
+@mixin vertical-slider-keyframes($name, $num-images, $image-height) {
+  $transition-gap: 5%;
+  $static-time: (100% - ($num-images * $transition-gap)) / $num-images;
+  @keyframes #{$name} {
+    @for $i from 0 to $num-images {
+      $start-time: $i * $static-time + $i * $transition-gap;
+      $end-time: $start-time + $static-time;
+      #{$start-time}, #{$end-time} {
+        transform: translateY(-($i * $image-height));
+      }
+    }
+    #{100%} {
+      transform: translateY(-($num-images * $image-height))
+    }
+  }
+}

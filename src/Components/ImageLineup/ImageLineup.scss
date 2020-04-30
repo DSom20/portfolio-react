@@ -1,0 +1,12 @@
+.ImageLineup {
+  display: flex;
+  flex-wrap: nowrap;
+
+  &-row {
+    flex-direction: row; 
+  }
+
+  &:not(&-row) {
+    flex-direction: column;
+  }
+}

@@ -1,3 +1,5 @@
+@import '../../utilities';
+
 .About {
   &-profile-image-container {
     position: relative;
@@ -14,8 +16,6 @@
   &-profile-image-container::before {
     content: '';
     position: absolute;
-    // right: 1px;
-    // top: -11px;
     left: 1px;
     top: -11px;
     width: 10px;
@@ -34,4 +34,89 @@
     transform: rotate(-45deg)
   }
 
+  &-coding-images {
+    animation: 20s linear 0s infinite normal none running codingLineup;
+  }
+  
+  &-interests-images {
+    animation: 20s linear 0s infinite normal none running interestsLineup;
+  }
+
+  &-career-window {
+    position: relative;
+    top: -35px;
+    left: -50px;
+    animation: 20s linear 0s infinite normal none running careerWindow;
+  }
+
+  &-career-images {
+    display: flex;
+    flex-flow: row nowrap;
+    animation: 20s linear 0s infinite normal none running careerLineup;
+  }
+
 }
+
+@include vertical-slider-keyframes(codingLineup, 7, 120px);
+@include vertical-slider-keyframes(interestsLineup, 6, 120px);
+
+@keyframes careerLineup {
+  /* To Uni */
+  0% {
+      transform: translate(0px, 0px);
+  }
+  5%, 10% {
+      transform: translateX(-120px);
+  }
+  15%, 20% {
+      transform: translateX(-240px);
+  }
+  /* To Filler */
+  25% {
+      transform: translate(-360px, -100px);
+  }
+  /* Still Filler, But adjust vertical back to baseline invisibly */
+  25.1% {
+      transform: translate(-360px, 0px)
+  }
+  /* To EMT */
+  27.5%, 32.5% {
+      transform: translateX(-480px);
+  }
+  37.5%, 42.5% {
+      transform: translateX(-600px);
+  }
+  /* To Filler */
+  47.5% {
+      transform: translate(-720px,75px);
+  }
+  /* Still Filler, But adjust vertical back to baseline invisibly */
+  47.6% {
+      transform: translate(-720px, 0px);
+  }
+  /* To Code */
+  50%, 90% {
+      transform: translateX(-840px);
+  }
+  /* To Filler */
+  98% {
+      transform: translate(-720px, 35px);
+  }
+  100% {
+      transform: translate(-720px, 0px);
+  }
+}
+
+@keyframes careerWindow {
+  0%, 20%, 100% {
+      transform: translate(0px, 0px);
+  }
+  24.1%, 42.5% {
+      transform: translate(50px,60px);
+  }
+  47.6%, 90% {
+      transform: translate(100px, 30px);
+  }
+
+}
+
