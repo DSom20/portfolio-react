@@ -4,11 +4,12 @@ import About from '../About';
 import Projects from '../Projects';
 import NotFound from '../NotFound';
 import Home from '../Home';
+import RoutesAnimated from '../RoutesAnimated';
 
 function Routes() {
   return (
     <Switch>
-      <Route exact path='/about'>
+      {/* <Route exact path='/about'>
         <About />
       </Route>
       <Route exact path='/projects'>
@@ -17,7 +18,10 @@ function Routes() {
       <Route exact path='/'>
         <Home />
       </Route>
-      <Route><NotFound /></Route>
+      <Route><NotFound /></Route> */}
+      <Route path="*">
+        <RoutesAnimated />
+      </Route>
     </Switch>
   )
 }

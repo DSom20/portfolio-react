@@ -10,6 +10,10 @@
 body {
   @include set-background-color($primary-background);
   font-family: $font-stack;
+  // for horizontal animation page transitions to prevent scrollbar from showing up while element is
+  // still transitioning from offscreen. 
+  // Page should be responsive to avoid need for overflow-x ideally...so shouldn't affect functionality
+  overflow-x: hidden;
 }
 
 // @include media-breakpoint-down(sm) {

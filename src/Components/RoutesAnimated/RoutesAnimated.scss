@@ -1,0 +1,27 @@
+.slide {
+  &-enter {
+    transform: translateX(100vw);
+    
+    &-active {
+      transform: translateX(0vw);
+      transition: transform 1000ms ease-in;
+    }
+
+    // &-done {
+    //   transform: translateX(0vw);
+    //   transition: transform 100ms ease-in;
+    // }
+  }
+
+  &-exit {
+    transform: translateX(0);
+
+    &-active {
+      transform: translateX(-100vw);
+      transition: transform 1000ms ease-in;
+    }
+  }
+
+}
+
+// &-enter#{&}-enter-active { //other gross syntax to avoid double nesting
