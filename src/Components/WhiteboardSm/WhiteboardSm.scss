@@ -29,7 +29,7 @@
   border-left: 10px solid black;
   border-right: 10px solid black;
   box-shadow: inset 0 0 2px rgba(0,0,0, 1),
-              0 0 15px black;
+              0 0 8px black;
 }
 //Using ::after and ::before to create wedges on corners, and utilizing box-shadow as
 // border. Border-image was rough to deal with- avoiding for now.
@@ -57,3 +57,15 @@
     0 -2px silver, 0 -4px gray, 0 -6px silver, 0 -8px gray, 0 -10px silver;
   pointer-events: none;
 }
+
+.WhiteboardSm:nth-of-type(2n+1) {
+  z-index: 10;
+  box-shadow: inset 0 0 2px rgba(0,0,0, 1),
+              0 0 12px black;
+}
+// .WhiteboardSm:nth-of-type(2n)::after {
+//   border-top: 5px solid darken(silver, 15%);
+//   border-bottom: 5px solid darken(silver, 15%);
+//   box-shadow: 0 0 4px black, 
+//               inset 0px 0px 13px black;
+// }

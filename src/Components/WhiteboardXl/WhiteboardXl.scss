@@ -1,4 +1,8 @@
 .WhiteboardXl {
+  // overflow protection here prevents vertical transitions from activating scrollbar
+  // --tried in wbLg, but that caused overflow-x to activate under the hood in odd ways
+  overflow-y: hidden;
+  overflow-x: hidden;
   // padding: 50px 0;
   // color: black;
   display: flex;

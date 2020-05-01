@@ -9,7 +9,6 @@ import ImageLineup from '../ImageLineup';
 import ImageSlide from '../ImageSlide';
 
 import profilePic from "../../images/profile/david_profile_pic_square_800.jpg";
-import universityIcon from "../../images/aboutme/icons8-university-100.png";
 import booksIcon from "../../images/aboutme/icons8-books-2-100.png";
 import ambulanceIcon from "../../images/aboutme/icons8-ambulance-reverse-100.png";
 import graduationIcon from "../../images/aboutme/icons8-graduation-cap-100.png";
@@ -27,19 +26,51 @@ import githubIcon from "../../images/aboutme/icons8-github-100.png";
 import htmlIcon from "../../images/aboutme/icons8-html-5-100.png";
 import cssIcon from "../../images/aboutme/icons8-css3-100.png"; 
 import javascriptIcon from "../../images/aboutme/icons8-javascript-logo-100.png";
-
 import weddingRingsIcon from "../../images/aboutme/icons8-wedding-rings-100.png"
 
 
 function About() {
+
+  let slideUpIntersectionCallback = (entries,observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("slide-up");
+        observer.unobserve(entry.target);
+      }
+    })
+  }
+
+  let slideRightIntersectionCallback = (entries,observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("slide-right");
+        observer.unobserve(entry.target);
+      }
+    })
+  }
+  let slideLeftIntersectionCallback = (entries,observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("slide-left");
+        observer.unobserve(entry.target);
+      }
+    })
+  }
+
+  let slideUpIntersectionOptions = {
+    root: null,
+    rootMargin: "100px",
+    threshold: 0
+  }
+
   return (
     <WhiteboardLg className="About">
       {/* p rather than div to allow :nth-child to work properly in WhiteboardMd css */}
       <p className="About-profile-image-container">
         <img  src={profilePic} alt="headshot of david sommers" height="800px" width="800px"/>
       </p>
-      <WhiteboardMd >
-        <WhiteboardSm id="wb-1">
+      <WhiteboardMd>
+        <WhiteboardSm transitionCallback={slideLeftIntersectionCallback} id="wb-1">
           <h3>What do I do?</h3>
           <p>I'm a software engineer based in the San Francisco Bay Area.
             I love creating cleanly coded, well tested, buttery smooth web apps.
@@ -48,7 +79,7 @@ function About() {
           </p>
         </WhiteboardSm>
         <WhiteboardSm id="wb-3">
-          <ProjectorScreen frame>
+          <ProjectorScreen frame transitionOnScroll animationDelay={3000}>
             <ImageWindow>
               <ImageLineup className="About-coding-images">
                 <ImageSlide src={javaIcon} alt="java logo"/>
@@ -81,7 +112,7 @@ function About() {
             </ImageWindow>
           </ProjectorScreen>
         </WhiteboardSm>
-        <WhiteboardSm id="wb-4">
+        <WhiteboardSm transitionCallback={slideRightIntersectionCallback} id="wb-4">
           <h3>What have I done?</h3>
           <p>Studied humanities at Pepperdine to explore the big ideas.
             Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. Say what? Yeah. First on an ambulance, then in SF General's emergency department. Got to work with tons of awesome people along the way. Then I pursued nursing for a bit.
@@ -94,8 +125,8 @@ function About() {
           </p>
         </WhiteboardSm>
       </WhiteboardMd>
-      <WhiteboardMd>
-        <WhiteboardSm>
+      <WhiteboardMd  transitionCallback={slideUpIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
+        <WhiteboardSm transitionCallback={slideLeftIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
           <h3>What else do I do?</h3>
           <p>
             I enjoy playing basketball and volleyball, particularly the dunking and spiking parts. 
@@ -106,8 +137,8 @@ function About() {
             And I enjoy being married to my amazing wife.
           </p>
         </WhiteboardSm>
-        <WhiteboardSm>
-          <ProjectorScreen frame>
+        <WhiteboardSm transitionCallback={slideRightIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
+          <ProjectorScreen frame transitionOnScroll animationDelay={3000}>
               <ImageWindow>
                   <ImageLineup className="About-interests-images">
                     <ImageSlide src={basketballIcon} alt="icon of basketball hoop"/>

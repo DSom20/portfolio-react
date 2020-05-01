@@ -9,23 +9,26 @@ import './RoutesAnimated.scss'
 
 function RoutesAnimated() {
   let location = useLocation();
+  const pageTransitionTime = 1000;
   return (
     // <TransitionGroup component={null}>
     <SwitchTransition mode='out-in' >
       <CSSTransition
         key={location.key}
         classNames="slide"
-        timeout={1000}
+        timeout={pageTransitionTime}
+        in
+        appear
       >
         <Switch location={location}>
           <Route exact path='/about'>
-            <About />
+            <About delay={pageTransitionTime}/>
           </Route>
           <Route exact path='/projects'>
-            <Projects />
+            <Projects delay={pageTransitionTime}/>
           </Route>
           <Route exact path='/'>
-            <Home />
+            <Home delay={pageTransitionTime}/>
           </Route>
           <Route><NotFound /></Route>
         </Switch>

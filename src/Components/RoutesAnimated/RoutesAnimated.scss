@@ -1,4 +1,13 @@
 .slide {
+  &-appear {
+    transform: translateX(100vw);
+    
+    &-active {
+      transform: translateX(0vw);
+      transition: transform 1000ms ease-in;
+    }
+  }
+
   &-enter {
     transform: translateX(100vw);
     

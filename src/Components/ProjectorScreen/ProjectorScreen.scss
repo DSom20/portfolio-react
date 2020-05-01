@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  // min-height: 100px;
   max-height: 300px;
   min-width: 250px;
   max-width: 350px;
@@ -11,6 +12,17 @@
   align-self: stretch;
   // justify-self: stretch;
   background-color: #bddef4;
+
+  &#{&}-preloading {
+    background-color: black;
+  }
+
+  &#{&}-loaded {
+    background-color: red;
+    transform: scale(0);
+    animation: to-scale-100 5s forwards;
+  }
+
 
   &-frame {
     position: absolute;
@@ -33,3 +45,84 @@
   }
 }
 
+
+// Toying with cool transtion once projector loaded...
+// but way too complicated and end up having to animate non transform/opacity properties
+// .ProjectorScreen-frame-bl {
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   animation: frame-to-bottom-left 5s forwards;
+// }
+
+// .ProjectorScreen-frame-tr {
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   animation: frame-to-top-right 5s forwards;
+// }
+
+
+// @keyframes to-scale-100 {
+//   to {
+//     transform: scale(1);
+//   }
+// }
+
+// @keyframes frame-to-top-right {
+//   to {
+//     top: 0%;
+//     left: 80%;
+//     transform: translate(0,0);
+//   }
+// }
+
+// @keyframes frame-to-bottom-left {
+//   to {
+//     bottom: 0;
+//     left: 0;
+//     transform: translate(0,0);
+//   }
+// }
+
+// .rowOuterWrapper {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .rowWrapper {
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-self: stretch;
+//   flex: 1 1 0;
+// }
+
+// .tbWrapper {
+//   height: 200px;
+//   transform: scaleY(1);
+//   animation: scale-y-to-0 5s forwards;
+// }
+
+// .rlWrapper {
+//   width: 300px;
+//   transform: scaleX(1);
+//   animation: scale-x-to-0 5s forwards;
+// }
+
+// .ProjectorScreen.ProjectorScreen-loaded {
+//   flex: 1 1 0;
+//   min-width: 120px;
+// }
+
+// @keyframes scale-x-to-0 {
+//   to {
+//     // transform: scaleX(0);
+//     width: 0;
+//   }
+// }
+// @keyframes scale-y-to-0 {
+//   to {
+//     // transform: scaleY(0);
+//     height: 0;
+//   }
+// }

@@ -4,4 +4,5 @@
   overflow: hidden;
   background: white;
   border-radius: 50%;
+  z-index: 0; // necessary in safari to make overflow hidden respect border-radius...weird
 }

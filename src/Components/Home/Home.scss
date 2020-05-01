@@ -4,7 +4,57 @@
   a:hover {
     color: yellow;
   }
+
+  &-wb1-slide-down {
+    &-appear {
+      transform: translateY(-100%);
+  
+      &-active {
+        transform: translateY(0);
+        // duration, then delay
+        // don't like having to hardcode these numbers here though...
+          // maybe define classes in js to utilize props passed down...
+        transition: transform 1000ms 1000ms;
+      }
+  
+      &-done {
+        opacity: 1;
+        color: red
+      }
+    }
+  }
+
+  &-wb2-slide-down {
+    &-appear {
+      transform: translateY(-100vh);
+  
+      &-active {
+        transform: translateY(0);
+        transition: transform 1000ms 2000ms;  // don't like having to hardcode delay here...
+      }
+  
+      &-done {
+        opacity: 1;
+        color: red
+      }
+    }
+  }
+        // &-enter {
+    //   opacity: 0;
+  
+    //   &-active {
+    //     opacity: 1;
+    //     transform: opacity 3000ms;
+    //   }
+  
+    //   &-done {
+    //     opacity: 1;
+    //   }
+    // }
+
 }
+
+
 
 // .Home {
 //   // padding: 50px 0;

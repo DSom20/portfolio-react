@@ -16,6 +16,49 @@ body {
   overflow-x: hidden;
 }
 
+// Utility classes for whiteboard transitions...
+// Not sure where to put them, as they could be used by Md and Sm whiteboards,
+// and currently they're getting sent down from About/Projects/Home ... convoluted
+.slide-up {
+  transform: translateY(150px);
+  animation: slide-vertical 3s ease forwards;
+}
+
+.slide-down {
+  transform: translateY(-150px);
+  animation: slide-vertical 3s ease forwards;
+}
+
+@keyframes slide-vertical {
+to { transform: translateY(0); }
+}
+
+.slide-left {
+  transform: translateX(150px);
+  animation: slide-horizontal 3s ease forwards;
+}
+
+
+.slide-right {
+transform: translateX(-150px);
+animation: slide-horizontal 3s ease forwards;
+}
+
+@keyframes slide-horizontal {
+to { transform: translateX(0); }
+}
+
+@include media-breakpoint-down(sm) {
+  .slide-left { //becomes slide up
+    transform: translateY(150px);
+    animation: slide-vertical 3s ease forwards;
+  }
+  .slide-right {
+    transform: translateY(-150px);
+    animation: slide-vertical 3s ease forwards;
+  }
+}
+
 // @include media-breakpoint-down(sm) {
 //   // Meant to always have y-scroll bar there so that i can always have the WhiteboardLg
 //   // border flush. Whiteboard lg width at this size is 100vw
