@@ -3,6 +3,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 import './SmartNavLink.scss';
 
 function SmartNavLink({ propClassNames = '', exact, toPath, ...props}) {
+  // INITIALIZE stateClassNames with ignore-active-animation
+  // Remove it later by just reassigning state to propClassNames + whatever
   const [stateClassNames, setStateClassNames] = useState(`${propClassNames} ignore-active-animation`);
   let firstTimeActive = useRef(true);
   let justMounted = useRef(true);

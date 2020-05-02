@@ -10,10 +10,9 @@
 body {
   @include set-background-color($primary-background);
   font-family: $font-stack;
-  // for horizontal animation page transitions to prevent scrollbar from showing up while element is
-  // still transitioning from offscreen. 
-  // Page should be responsive to avoid need for overflow-x ideally...so shouldn't affect functionality
-  overflow-x: hidden;
+  // Just always keep Y scroll area present to avoid weird hiccup when transition
+  // from a page that had it to one that doesn't need it (and vice versa)
+  overflow-y: scroll;
 }
 
 // Utility classes for whiteboard transitions...
