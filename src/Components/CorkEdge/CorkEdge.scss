@@ -1,10 +1,12 @@
 @import '../../utilities';
 
+
 .CorkEdge {
   z-index: 1000;
   @extend .px-2;
   // @extend .py-1;
-  @include set-background-color(#ceab86);
+  background: url(../../images/utility/cork-light-tiny.jpg), #ceab86;
+  // @include set-background-color(#ceab86);
 }
 
 .CorkEdge:first-child {
