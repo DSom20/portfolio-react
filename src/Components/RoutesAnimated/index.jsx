@@ -9,7 +9,10 @@ import './RoutesAnimated.scss'
 
 function RoutesAnimated() {
   let location = useLocation();
-  const pageTransitionTime = 1000;
+  // This is total time allowed for transition, including delays. The transition doesn't
+  // need to utilize all the time. I have exit delaying, utilizing almost full time.
+  // But I have enter/appear not delaying, finishing in much less than time allotted
+  const pageTransitionTime = 2000;
   return (
     // <TransitionGroup component={null}>
     <SwitchTransition mode='out-in' >

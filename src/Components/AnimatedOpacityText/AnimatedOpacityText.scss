@@ -1,0 +1,51 @@
+.AnimatedOpacityText-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.AnimatedOpacityText {
+  position: relative;
+
+  //tried using ::after instead of separate div, but couldn't conditionally assign the animation class to ::after element from react js file (without doing a manual query on the DOM)
+  &-overlay {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    transform: translateX(-50%); //gets opaque part fully covering text
+    background: linear-gradient(90deg, rgba(255,255,255,0) 45%, rgba(255,255,255,1) 50%);
+  }
+
+  &-animation {
+    animation: slide-overlay-right 5s forwards;
+  }
+}
+
+@keyframes slide-overlay-right {
+  to {
+    transform: translateX(50%);
+  }
+}
+
+.animation-delay-0 {
+  animation-delay: 0;
+}
+
+.animation-delay-1 {
+  animation-delay: 1s;
+}
+.animation-delay-2 {
+  animation-delay: 2s;
+}
+.animation-delay-3 {
+  animation-delay: 3s;
+}
+.animation-delay-4 {
+  animation-delay: 4s;
+}
+.animation-delay-5 {
+  animation-delay: 5s;
+}
+

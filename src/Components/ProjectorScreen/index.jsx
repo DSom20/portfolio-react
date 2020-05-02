@@ -117,9 +117,9 @@ function ProjectorScreen({ animationDelay = 0, transitionOnScroll = null,
   //   </>
   //   )
   // )
+  // if (isLoaded) return loadedJSXWrapper;
   
-  // if (isLoaded) return loadedJSX;
-  if (isLoaded) return loadedJSXWrapper;
+  if (isLoaded) return loadedJSX;
   if (hasStartedLoading) return loadingJSX;
   return notYetLoadingJSX;
 }

@@ -33,8 +33,8 @@ function Home({ delay }) {
       <CSSTransition in appear timeout={delay + 1000 + 1000} classNames="Home-wb2-slide-down">
         <WhiteboardSm id="wb-3">
           {/* <p>This is board 3</p> */}
-          <h2>Check out some of my <Link exact to='/projects'>Projects</Link></h2>
-          <h2>Or read a bit <Link exact to='/about'>About Me</Link></h2>
+          <h2>Check out some of my <Link to='/projects'>Projects</Link></h2>
+          <h2>Or read a bit <Link to='/about'>About Me</Link></h2>
         </WhiteboardSm>
       </CSSTransition>
 

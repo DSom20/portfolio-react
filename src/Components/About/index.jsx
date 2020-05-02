@@ -7,6 +7,8 @@ import ProjectorScreen from '../ProjectorScreen';
 import ImageWindow from '../ImageWindow';
 import ImageLineup from '../ImageLineup';
 import ImageSlide from '../ImageSlide';
+import AnimatedOpacityText from '../AnimatedOpacityText';
+
 
 import profilePic from "../../images/profile/david_profile_pic_square_800.jpg";
 import booksIcon from "../../images/aboutme/icons8-books-2-100.png";
@@ -72,11 +74,20 @@ function About() {
       <WhiteboardMd>
         <WhiteboardSm transitionCallback={slideLeftIntersectionCallback} id="wb-1">
           <h3>What do I do?</h3>
-          <p>I'm a software engineer based in the San Francisco Bay Area.
+          {/* Wrap p text instead in AnimatedOpacityText, takes transitionOnScroll and animationDelay */}
+          <AnimatedOpacityText animationDelay={3}>
+            <>
+              I'm a software engineer based in the San Francisco Bay Area.
+              I love creating cleanly coded, well tested, buttery smooth web apps.
+              My go to tech stack is React, Node / Express, and PostgreSQl. I've also
+              built apps with Python / Flask as well as Ruby on Rails.
+            </>
+          </AnimatedOpacityText>
+          {/* <p>I'm a software engineer based in the San Francisco Bay Area.
             I love creating cleanly coded, well tested, buttery smooth web apps.
             My go to tech stack is React, Node / Express, and PostgreSQl. I've also
             built apps with Python / Flask as well as Ruby on Rails.
-          </p>
+          </p> */}
         </WhiteboardSm>
         <WhiteboardSm id="wb-3">
           <ProjectorScreen frame transitionOnScroll animationDelay={3000}>
@@ -128,14 +139,16 @@ function About() {
       <WhiteboardMd  transitionCallback={slideUpIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
         <WhiteboardSm transitionCallback={slideLeftIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
           <h3>What else do I do?</h3>
-          <p>
-            I enjoy playing basketball and volleyball, particularly the dunking and spiking parts. 
-            I enjoy lifting weights. 
-            I am a board game enthusiast (and have been known to dabble in the video type as well). 
-            I enjoy escape rooms. 
-            I enjoy ice cream.
-            And I enjoy being married to my amazing wife.
-          </p>
+          <AnimatedOpacityText transitionOnScroll animationDelay={3}>
+            <>
+              I enjoy playing basketball and volleyball, particularly the dunking and spiking parts. 
+              I enjoy lifting weights. 
+              I am a board game enthusiast (and have been known to dabble in the video type as well). 
+              I enjoy escape rooms. 
+              I enjoy ice cream.
+              And I enjoy being married to my amazing wife.
+            </>
+          </AnimatedOpacityText>
         </WhiteboardSm>
         <WhiteboardSm transitionCallback={slideRightIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
           <ProjectorScreen frame transitionOnScroll animationDelay={3000}>

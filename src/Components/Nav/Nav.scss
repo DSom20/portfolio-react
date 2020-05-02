@@ -1,43 +1,159 @@
 @import '../../utilities';
 
 .Nav {
-  // z-index: 1000;
+  height: 50px;
   display: flex;
   // @extend .px-2;
-  // // @extend .py-1;
-  // @include set-background-color(#ceab86);
-  // border-top: 5px solid silver;
-  // border-bottom: 2px solid silver;
-  // box-shadow: 0px 3px 0 0 silver, // first one lets it overhang over main page
-  //             0 3px 5px black;
-
-  .active {
-    // color: red;
-    background-color: red;
-  }
   
-  :first-child {
+  & > :first-child {
     margin-right: auto;
   }
   
-  // :not(:first-child):not(:last-child) {  //this worked in terms of selecting only the middle things, but ended up not liking the styling
-  //     margin-right: 10px;
-  //   }
   &-link {
     text-decoration: none;
-    background-color: rgb(0, 128, 0);
     border-radius: 5px;
-    @extend .px-2;
-    @extend .py-1;
-    @extend .mx-1;
+    // background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
   }
 
-  &-link:hover {
-    background-color: rgb(0, 160, 0);
-    border-radius: 5px;
+  &-link:hover:not(.active) {
+    // background: linear-gradient(#67ceff, #6795fd);
+    // background-image: linear-gradient(#6795fd 0%, #67ceff 60%);
   }
 
-  &-link:hover.active {
-    background-color: blue;
+  &-scene {
+    height: 100%;
+    perspective: 1000px;
+  }
+
+  &-card-placeholder {
+    height: 100%;
+    opacity: 0;
+    padding: 0 10px;
+    margin: 0 10px;
+    // background: green;
+  }
+  
+  &-card {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+
+  }
+  
+  &-card-face {
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  &-card-face-front {
+    background: red;
+  }
+  
+  &-card-face-back {
+    background: blue;
+    transform: rotateX( 180deg );
+  }
+
+  // needs to be higher in cascade (or lower specificity) than .active animation
+  &-link.flip-to-non-active {
+    animation: switch-nav-card-back 1s forwards;
+  }
+
+  &-link.active {
+    animation: switch-nav-card 1s forwards;
+    pointer-events: none;
+  }
+
+  &-link.active.ignore-active-animation {
+    transform: rotateX(180deg);
+    animation: none;
+  }
+
+}
+
+// if want to use lower specificity instead of higher cascade 
+// .flip-to-non-active {
+//   animation: switch-nav-card-back 3s forwards;
+// }
+
+@keyframes switch-nav-card {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(1.1) rotateX(180deg);
+  }
+  100% {
+
+    transform: scale(1) rotateX(180deg);
   }
 }
+@keyframes switch-nav-card-back {
+  0% {
+    transform: scale(1) rotateX(180deg);
+  }
+  20% {
+    transform: scale(1.1) rotateX(180deg);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+
+    transform: scale(1);
+  }
+}
+
+// FOR SIMPLE NAVBAR- without 3d transitions
+// .Nav {
+//   display: flex;
+//   // @extend .px-2;
+//   // // @extend .py-1;
+
+//   .active {
+//     // color: red;
+//     // background-image: linear-gradient(#ff0101 0%, #ff7777 100%);
+//     background-image: linear-gradient(blue, blue);
+//     // background-image: linear-gradient(red 0%, lighten(red, 20%) 50%, lighten(red,25%) 70%, lighten(red,20%) 90%, lighten(red, 15%) 100%);
+//     pointer-events: none;
+//   }
+  
+//   :first-child {
+//     margin-right: auto;
+//   }
+  
+//   // :not(:first-child):not(:last-child) {  //this worked in terms of selecting only the middle things, but ended up not liking the styling
+//   //     margin-right: 10px;
+//   //   }
+//   &-link {
+//     text-decoration: none;
+//     // background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+
+//     border-radius: 5px;
+//     @extend .px-2;
+//     @extend .py-1;
+//     @extend .mx-1;
+//   }
+
+//   &-link:hover:not(.active) {
+//     // background: linear-gradient(#67ceff, #6795fd);
+//     // background-image: linear-gradient(#6795fd 0%, #67ceff 60%);
+
+//   }
+
+//   // &-link:hover.active {
+//   //   background-color: blue;
+//   // }
+// }

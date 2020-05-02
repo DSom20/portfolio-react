@@ -27,7 +27,9 @@
 
     &-active {
       transform: translateX(-100vw);
-      transition: transform 1000ms ease-in;
+      // delay on exit to let navcards flip. Cut delay a little short of full navcard flip time
+      // currently flip is 1s
+      transition: transform 1000ms 750ms ease-in; 
     }
   }
 
