@@ -1,39 +1,45 @@
 @import '../../utilities';
 
 .Footer {
-  // z-index: 1000;
-  // @include set-background-color($secondary-background);
   display: flex;
-  // @extend .px-2;
-  @extend .py-1;
+  align-items: center;
+  height: 50px;
 
-  // @include set-background-color(#ceab86);
-  // border-bottom: 5px solid silver;
-  // border-top: 2px solid silver;
-
-  // box-shadow: 0px -3px 0 0 silver, // first one lets it overhang over main page
-  //             0 -3px 5px black;
-  .active {
-    color: red;
-  }
-  
-  :first-child {
+  & > :first-child {
     margin-right: auto;
   }
-  
-  // :not(:first-child):not(:last-child) {  //this worked in terms of selecting only the middle things, but ended up not liking the styling
-  //     margin-right: 10px;
-  //   }
-  &-link {
-    text-decoration: none;
-    @extend .px-2;
-    @extend .py-1;
+
+  &-link-container {
+    height: 100%;
   }
 
-  &-link:hover {
-    background-color: $tertiary-color;
+  &-link {
+    display: inline-block;
+    height: 100%;
+    width: 60px;
+    color: white;
+    background: blue;
+    transition: transform .2s;
     border-radius: 5px;
+
+    & svg {
+      height: 100%;
+      // transform: scale(1.13);
+      transform: scale(.8);
+    }
   }
+
+  // &-link-icon {
+  //   height: 100%;
+  //   // width: 100%;
+  //   transform: scale(1.13); //to make github icon look flush...
+  // }
+  &-link:hover {
+    // transform: scale(1.1) translateY(-2px);
+    transform: scale(1.1);
+  }
+
+  
 }
 
 #copyright {
