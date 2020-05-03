@@ -10,8 +10,17 @@
   }
   
   &-link {
+    text-align: center;
     text-decoration: none;
     border-radius: 5px;
+
+    // I Want to use short transition for hover, but BUG IN SAFARI
+    // In safari, transitions seem to affect their properties during animations...
+    // Timings are off, things sometimes transition cleanly sometimes dont.
+    // Hovering over something during animation messes with it (only in safari)
+    // Sooo, leave out transition for now...
+      // transition: transform .2s;
+
     // background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
   }
 
@@ -38,7 +47,6 @@
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-
   }
   
   &-card-face {
@@ -66,17 +74,27 @@
 
   // needs to be higher in cascade (or lower specificity) than .active animation
   &-link.flip-to-non-active {
-    animation: switch-nav-card-back 1s forwards;
+    // Had it as forwards fill, but since last keyframe has transform scale(1), 
+    // that seems to block future :hover/:focus events from changing the transform
+    // scale. That last keyframe just overpowers everything...
+    // Turns out, don't even need it though. Maybe it was a carry over from earlier
+    // experimentation
+    animation: switch-nav-card-back 3s;
   }
 
   &-link.active {
-    animation: switch-nav-card 1s forwards;
+    animation: switch-nav-card 3s forwards;
     pointer-events: none;
   }
 
   &-link.active.ignore-active-animation {
     transform: rotateX(180deg);
     animation: none;
+  }
+
+  &-link:focus, &-link:hover {
+    transform: scale(1.1);
+    // color: black;
   }
 
 }
@@ -88,16 +106,17 @@
 
 @keyframes switch-nav-card {
   0% {
-    transform: scale(1);
-  }
-  20% {
+    // use 1.0 instead if hover effect is not already scaling up a bit
     transform: scale(1.1);
   }
+  // and use this keyframe if starting from scale(1.0), or just want to flip at same time no matter what
+  // 20% {
+  //   transform: scale(1.1);
+  // }
   80% {
     transform: scale(1.1) rotateX(180deg);
   }
   100% {
-
     transform: scale(1) rotateX(180deg);
   }
 }
@@ -112,7 +131,6 @@
     transform: scale(1.1);
   }
   100% {
-
     transform: scale(1);
   }
 }

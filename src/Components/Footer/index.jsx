@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="Footer">
       <div id="copyright">
-        Copyright {(new Date(Date.now())).getFullYear()} by David Sommers
+        © {(new Date(Date.now())).getFullYear()} by David Sommers
       </div>
       <div className="Footer-link-container">
         <a className="Footer-link" aria-label="link to github account (opens in new tab)" href="https://github.com/DSom20/" rel="noreferrer noopener" target="_blank">

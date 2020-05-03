@@ -3,7 +3,7 @@
 .App {
   // @include set-background-color($primary-background);
   // background: no-repeat center / cover url('../../images/whiteboard-bg2.jpg');
-  font-family: $font-stack;
+
   display: flex;  // mainly to push footer to bottom
   flex-direction: column;
 

@@ -1,6 +1,50 @@
 @import '../../utilities';
 
 .About {
+  // WEIRD CHROME BUG it seems. If apply font-weight AND font-size to a header
+  // based on a CLASS rule, it ignores font-weight...kind of. It says its a valid
+  // rule in the dev tools, and says it's overriding the user agent default, but
+  // it LOOKS like just plain 400 font-weight all the time.
+  // Works fine in safari. And just applying rule to h3 selector instead of class
+  // selector works fine.
+    // &-header-text {
+    //   margin-top: 0;
+    //   font-weight: 100;
+    //   font-size: 20px;
+    // }
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    font-weight: 00;
+    font-size: 30px;
+    text-align: center;
+
+    span {
+      display: block;
+      font-size: 20px;
+      // color: rgb(103, 103, 103);
+      // font-style: italic;
+    }
+  }
+
+  &-detail-text {
+    p, ul {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0;
+      font-weight: 500;
+      padding-top: 20px;
+    }
+
+    span {
+      font-size: 16px;
+      color: rgb(103, 103, 103);
+      font-style: italic;
+    }
+  }
+
+
   &-profile-image-container {
     position: relative;
     width: 200px;

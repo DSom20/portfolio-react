@@ -4,7 +4,7 @@
 .CorkEdge {
   // currently defining height on Nav/Footer...
   z-index: 1000;
-  @extend .px-2;
+  @extend .px-1;
   background: url(../../images/utility/cork-light-tiny.jpg), #ceab86;
 }
 

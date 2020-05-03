@@ -37,9 +37,9 @@ function AnimatedOpacityText({ transitionOnScroll, transitionOptions, animationD
 
   return (
     <div className="AnimatedOpacityText-container">
-      <p ref={observable} className={'AnimatedOpacityText ' + (props.className || '')} id={props.id} style={props.style}>
+      <div ref={observable} className={'AnimatedOpacityText ' + (props.className || '')} id={props.id} style={props.style}>
         {props.children}
-      </p>
+      </div>
       <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} ${animationActivated ? "AnimatedOpacityText-animation" : ''}`} ></div>
     </div>
   )

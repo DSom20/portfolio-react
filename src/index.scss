@@ -9,7 +9,12 @@
 
 body {
   @include set-background-color($primary-background);
-  font-family: $font-stack;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // font-family: $font-stack;
   // Just always keep Y scroll area present to avoid weird hiccup when transition
   // from a page that had it to one that doesn't need it (and vice versa)
   overflow-y: scroll;
@@ -28,8 +33,18 @@ body {
   animation: slide-vertical 3s ease forwards;
 }
 
+// @keyframes slide-vertical {
+// to { transform: translateY(0); }
+// }
+
 @keyframes slide-vertical {
-to { transform: translateY(0); }
+  from {
+    transform: translateY(500px);
+    opacity: 1;
+  } to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .slide-left {
@@ -47,16 +62,23 @@ animation: slide-horizontal 3s ease forwards;
 to { transform: translateX(0); }
 }
 
-@include media-breakpoint-down(sm) {
-  .slide-left { //becomes slide up
-    transform: translateY(150px);
-    animation: slide-vertical 3s ease forwards;
-  }
-  .slide-right {
-    transform: translateY(-150px);
-    animation: slide-vertical 3s ease forwards;
-  }
-}
+
+// I was conditionally changing slide-left/right to be slide-vertical here in css,
+//  but changing the viewport width after the initial transition would then trigger
+// the alterior animation...So I ended up doing the logic and checking viewport width
+// in Javascript instead, that way can just assign the one static class of either
+// slide-left/right or slide-up/down
+//
+// @include media-breakpoint-down(sm) {
+//   .slide-left { //becomes slide up
+//     transform: translateY(150px);
+//     animation: slide-vertical 3s ease forwards;
+//   }
+//   .slide-right {
+//     transform: translateY(-150px);
+//     animation: slide-vertical 3s ease forwards;
+//   }
+// }
 
 // @include media-breakpoint-down(sm) {
 //   // Meant to always have y-scroll bar there so that i can always have the WhiteboardLg

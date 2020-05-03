@@ -45,7 +45,11 @@ function About() {
   let slideRightIntersectionCallback = (entries,observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("slide-right");
+        if (window.innerWidth > 768) {
+          entry.target.classList.add("slide-right");
+        } else {
+          entry.target.classList.add("slide-up");
+        }
         observer.unobserve(entry.target);
       }
     })
@@ -53,7 +57,12 @@ function About() {
   let slideLeftIntersectionCallback = (entries,observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("slide-left");
+        if (window.innerWidth > 768) {
+          entry.target.classList.add("slide-left");
+        } else {
+          entry.target.classList.add("slide-up");
+        }
+
         observer.unobserve(entry.target);
       }
     })
@@ -73,15 +82,15 @@ function About() {
       </p>
       <WhiteboardMd>
         <WhiteboardSm transitionCallback={slideLeftIntersectionCallback} id="wb-1">
-          <h3>What do I do?</h3>
-          {/* Wrap p text instead in AnimatedOpacityText, takes transitionOnScroll and animationDelay */}
-          <AnimatedOpacityText animationDelay={3}>
-            <>
+        {/* <WhiteboardSm id="wb-1"> */}
+          <h3 className="About-header-text">What I Do</h3>
+          <AnimatedOpacityText className="About-detail-text" animationDelay={3}>
+            <p>
               I'm a software engineer based in the San Francisco Bay Area.
               I love creating cleanly coded, well tested, buttery smooth web apps.
               My go to tech stack is React, Node / Express, and PostgreSQl. I've also
               built apps with Python / Flask as well as Ruby on Rails.
-            </>
+            </p>
           </AnimatedOpacityText>
           {/* <p>I'm a software engineer based in the San Francisco Bay Area.
             I love creating cleanly coded, well tested, buttery smooth web apps.
@@ -124,30 +133,33 @@ function About() {
           </ProjectorScreen>
         </WhiteboardSm>
         <WhiteboardSm transitionCallback={slideRightIntersectionCallback} id="wb-4">
-          <h3>What have I done?</h3>
-          <p>Studied humanities at Pepperdine to explore the big ideas.
-            Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. Say what? Yeah. First on an ambulance, then in SF General's emergency department. Got to work with tons of awesome people along the way. Then I pursued nursing for a bit.
-          </p>
-          <p>
-          Craving for a career I was passionate about, I looked into software engineering in my spare time. Did some self-study to confirm I loved it, then made the big switch! Dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
-          </p>
-          <p>
-          Now, I'm on the hunt for new coding opportunities!
-          </p>
+          <h3 className="About-header-text">My Journey</h3>
+          <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={3}>
+            <p>I studied humanities at Pepperdine to explore the big ideas.
+              Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. First on an ambulance, then in SF General's emergency department. Got to work with tons of awesome people along the way. Then I pursued nursing for a bit.
+            </p>
+            <p>
+            Craving a career I was passionate about, I looked into software engineering in my spare time. Did some self-study to confirm I loved it, then made the big switch! Dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
+            </p>
+            <p>
+            Now, I'm on the hunt for new coding opportunities!
+            </p>
+          </ AnimatedOpacityText>
         </WhiteboardSm>
       </WhiteboardMd>
       <WhiteboardMd  transitionCallback={slideUpIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
         <WhiteboardSm transitionCallback={slideLeftIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
-          <h3>What else do I do?</h3>
-          <AnimatedOpacityText transitionOnScroll animationDelay={3}>
-            <>
-              I enjoy playing basketball and volleyball, particularly the dunking and spiking parts. 
-              I enjoy lifting weights. 
-              I am a board game enthusiast (and have been known to dabble in the video type as well). 
-              I enjoy escape rooms. 
-              I enjoy ice cream.
-              And I enjoy being married to my amazing wife.
-            </>
+          <h3 className="About-header-text">Things I Enjoy<span>(Besides coding)</span></h3>
+          <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={3}>
+            <ul>
+              <li>Playing Basketball and Volleyball <span>(especially the dunking and spiking parts)</span></li> 
+              <li>Wightlifting <span>(especially the parts...that help me dunk and spike better)</span></li> 
+              <li>Board Games <span>(Recent Favorite: Cryptid. Classic Favorite: Cosmic Encounter)</span> </li> 
+              <li>Video Games <span>(Recent Favorite: Overcooked 2. Wish I had time for but probably never will again: 7 Days to Die)</span></li>
+              <li>Escape Rooms </li> 
+              <li>Ice Cream <span>(Salt & Straw, please open in the East Bay)</span></li> 
+              <li>Being Married to My Amazing Wife. <span>(She's the best)</span></li> 
+            </ul>
           </AnimatedOpacityText>
         </WhiteboardSm>
         <WhiteboardSm transitionCallback={slideRightIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
