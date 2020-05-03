@@ -3,7 +3,7 @@
 .Footer {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 40px;
 
   & > :first-child {
     margin-right: auto;
@@ -11,9 +11,11 @@
 
   &-link-container {
     height: 100%;
+    padding: 0 10px;
   }
 
   &-link {
+    text-align: center;
     display: inline-block;
     height: 100%;
     width: 60px;

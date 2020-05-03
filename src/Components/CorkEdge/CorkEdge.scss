@@ -2,13 +2,13 @@
 
 
 .CorkEdge {
+  // currently defining height on Nav/Footer...
   z-index: 1000;
   @extend .px-2;
-  // @extend .py-1;
   background: url(../../images/utility/cork-light-tiny.jpg), #ceab86;
-  // @include set-background-color(#ceab86);
 }
 
+// Select first corkEdge among siblings (ie nav)
 .CorkEdge:first-child {
   border-top: 5px solid silver;
   border-bottom: 2px solid silver; //allow main page to get close to this border, then box shadow will overhang it
@@ -16,6 +16,7 @@
               0 3px 5px black;
 }
 
+// Select last corkEdge among siblings (ie footer)
 // Switch bottom/top overhang
 .CorkEdge:last-child {
   border-bottom: 5px solid silver;
