@@ -33,13 +33,13 @@
 
   &#{&}-loading {
     // wanted to pass in duration in JS, but complicated...
-    // really timer is 5s, but end part of opacity change all looks the same...
+    // really timer is 3-5s, but end part of opacity change all looks the same...
     animation: transition-to-opaque 7s forwards; 
   }
 
   &#{&}-loaded {
     opacity: 1;
-    // background-color: red;
+    background-color: rgba(36, 36, 36, 0.687);
     // transform: scale(0);
     // animation: to-scale-100 5s forwards;
   }
