@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './About.scss';
 import WhiteboardLg from '../WhiteboardLg';
 import WhiteboardMd from '../WhiteboardMd';
 import WhiteboardSm from '../WhiteboardSm';
+import IntersectionObserverWhiteboardMd from '../IntersectionObserverWhiteboardMd';
+import IntersectionObserverWhiteboardSm from '../IntersectionObserverWhiteboardSm';
 import ProjectorScreen from '../ProjectorScreen';
 import ImageWindow from '../ImageWindow';
 import ImageLineup from '../ImageLineup';
@@ -36,21 +38,41 @@ function About() {
   let slideUpIntersectionCallback = (entries,observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("slide-up");
+        entry.target.classList.add("slide-up", "play");
+        observer.unobserve(entry.target);
+      }
+    })
+  }
+  let slideDownBigIntersectionCallback = (entries,observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("slide-down-big", "play");
         observer.unobserve(entry.target);
       }
     })
   }
 
+  // I only have slideRight and left on whiteboard smalls. I really wanted to avoid
+  // IntersectionObservers on smalls that are children of medium, ideally just having
+  // IO on the medium, and when it intersects it gets a "play" css rule which could
+  // trigger children's animations to play as well (after their appropriate delays).
+  // BUT, the small children need to slide vertically on small screens and horizontally
+  // on large screens. If I simply give them a different animation based on css media
+  // breakpoints, then whenever the viewport size changes, the other animation will retrigger.
+  // SO, I have to keep an IO on the children small whiteboards and give them an appropriate class
+  // right at the time where they get scrolled to, and that class will stay forever so 
+  // the animation only ever gets run once. (Could theoretically be problem if person changes
+  // viewport size right as they scroll to it...)
   let slideRightIntersectionCallback = (entries,observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         // css breakpoint-md, when whiteboardMd becomes flex-column instead of 
         // flex-row like it is at larger at larger widths
+        // 
         if (window.innerWidth > 992) { 
           entry.target.classList.add("slide-right");
         } else {
-          entry.target.classList.add("slide-up");
+          entry.target.classList.add("slide-down");
         }
         observer.unobserve(entry.target);
       }
@@ -62,7 +84,7 @@ function About() {
         if (window.innerWidth > 992) {
           entry.target.classList.add("slide-left");
         } else {
-          entry.target.classList.add("slide-up");
+          entry.target.classList.add("slide-down");
         }
 
         observer.unobserve(entry.target);
@@ -70,11 +92,13 @@ function About() {
     })
   }
 
-  let slideUpIntersectionOptions = {
+  let slideBasicIntersectionOptions = {
     root: null,
-    rootMargin: "100px",
+    rootMargin: "0px",
     threshold: 0
   }
+
+  // const ref1 = useRef();
 
   return (
     <WhiteboardLg className="About">
@@ -82,11 +106,10 @@ function About() {
       <p className="About-profile-image-container">
         <img  src={profilePic} alt="headshot of david sommers" height="800px" width="800px"/>
       </p>
-      <WhiteboardMd>
-        <WhiteboardSm transitionCallback={slideLeftIntersectionCallback} id="wb-1">
-        {/* <WhiteboardSm id="wb-1"> */}
+      <IntersectionObserverWhiteboardMd className="transparent" transitionCallback={slideDownBigIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+        <WhiteboardSm className="upper-z-board">
           <h3 className="About-header-text">What I Do</h3>
-          <AnimatedOpacityText className="About-detail-text" animationDelay={3}>
+          <AnimatedOpacityText className="About-detail-text" animationDelay={1}>
             <p>
               I'm a software engineer based in the San Francisco Bay Area.
               I love creating cleanly coded, well tested, buttery smooth web apps.
@@ -94,14 +117,9 @@ function About() {
               built apps with Python / Flask as well as Ruby on Rails.
             </p>
           </AnimatedOpacityText>
-          {/* <p>I'm a software engineer based in the San Francisco Bay Area.
-            I love creating cleanly coded, well tested, buttery smooth web apps.
-            My go to tech stack is React, Node / Express, and PostgreSQl. I've also
-            built apps with Python / Flask as well as Ruby on Rails.
-          </p> */}
         </WhiteboardSm>
-        <WhiteboardSm id="wb-3">
-          <ProjectorScreen frame transitionOnScroll animationDelay={3000}>
+        <IntersectionObserverWhiteboardSm className="transparent" transitionCallback={slideRightIntersectionCallback}>
+          <ProjectorScreen frame transitionOnScroll animationDelayForLargeScreen={3500} animationDelayForSmallScreen={4000}>
             <ImageWindow>
               <ImageLineup className="About-coding-images">
                 <ImageSlide src={javaIcon} alt="java logo"/>
@@ -115,11 +133,11 @@ function About() {
               </ImageLineup>
             </ImageWindow>
           </ProjectorScreen>
-        </WhiteboardSm>
-      </WhiteboardMd>
-      <WhiteboardMd id="wbh-2">
-        <WhiteboardSm id="wb-2">
-          <ProjectorScreen frame>
+        </IntersectionObserverWhiteboardSm>
+      </IntersectionObserverWhiteboardMd>
+      <IntersectionObserverWhiteboardMd className="transparent" transitionCallback={slideUpIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+        <IntersectionObserverWhiteboardSm  className="transparent" transitionCallback={slideLeftIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+          <ProjectorScreen frame transitionOnScroll animationDelayForLargeScreen={3500} animationDelayForSmallScreen={1400}>
             <ImageWindow className="About-career-window">
               <ImageLineup className="About-career-images" flexRow>
                 <ImageSlide placeholder={true}/>
@@ -133,10 +151,10 @@ function About() {
               </ImageLineup>
             </ImageWindow>
           </ProjectorScreen>
-        </WhiteboardSm>
-        <WhiteboardSm transitionCallback={slideRightIntersectionCallback} id="wb-4">
+        </IntersectionObserverWhiteboardSm>
+        <WhiteboardSm className="upper-z-board">
           <h3 className="About-header-text">My Journey</h3>
-          <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={3}>
+          <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={1}>
             <p>I studied humanities at Pepperdine to explore the big ideas.
               Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. First on an ambulance, then in SF General's emergency department. Got to work with tons of awesome people along the way. Then I pursued nursing for a bit.
             </p>
@@ -148,11 +166,11 @@ function About() {
             </p>
           </ AnimatedOpacityText>
         </WhiteboardSm>
-      </WhiteboardMd>
-      <WhiteboardMd  transitionCallback={slideUpIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
-        <WhiteboardSm transitionCallback={slideLeftIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
+      </IntersectionObserverWhiteboardMd>
+      <IntersectionObserverWhiteboardMd  transitionCallback={slideUpIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+        <WhiteboardSm  className="upper-z-board">
           <h3 className="About-header-text">Things I Enjoy<span>(Besides coding)</span></h3>
-          <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={3}>
+          <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={1}>
             <ul>
               <li>Playing Basketball and Volleyball <span>(especially the dunking and spiking parts)</span></li> 
               <li>Wightlifting <span>(especially the parts...that help me dunk and spike better)</span></li> 
@@ -164,8 +182,8 @@ function About() {
             </ul>
           </AnimatedOpacityText>
         </WhiteboardSm>
-        <WhiteboardSm transitionCallback={slideRightIntersectionCallback} transitionOptions={slideUpIntersectionOptions}>
-          <ProjectorScreen frame transitionOnScroll animationDelay={3000}>
+        <IntersectionObserverWhiteboardSm className="transparent" transitionCallback={slideRightIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+          <ProjectorScreen frame transitionOnScroll animationDelayForLargeScreen={3500} animationDelayForSmallScreen={1400}>
               <ImageWindow>
                   <ImageLineup className="About-interests-images">
                     <ImageSlide src={basketballIcon} alt="icon of basketball hoop"/>
@@ -178,8 +196,8 @@ function About() {
                   </ImageLineup>
               </ImageWindow>
           </ProjectorScreen>
-        </WhiteboardSm>
-      </WhiteboardMd>
+        </IntersectionObserverWhiteboardSm>
+      </IntersectionObserverWhiteboardMd>
     </WhiteboardLg>
     
   )

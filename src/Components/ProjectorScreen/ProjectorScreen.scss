@@ -1,3 +1,5 @@
+@import '../../utilities';
+
 .ProjectorScreen {
   position: relative;
   display: flex;
@@ -6,18 +8,28 @@
   position: relative;
   // min-height: 100px;
   max-height: 300px;
-  min-width: 250px;
-  max-width: 350px;
+  width: 80%;
+  max-width: 400px;
+  // min-width: 250px;
+  // max-width: 350px;
   flex: 1 0 250px;
-  align-self: stretch;
+  // align-self: stretch;
   // justify-self: stretch;
   background-color: #bddef4;
 
   &#{&}-preloading {
     background-color: black;
+    opacity: 0;
+  }
+
+  &#{&}-loading {
+    // wanted to pass in duration in JS, but complicated...
+    // really timer is 5s, but end part of opacity change all looks the same...
+    animation: transition-to-opaque 7s forwards; 
   }
 
   &#{&}-loaded {
+    opacity: 1;
     // background-color: red;
     // transform: scale(0);
     // animation: to-scale-100 5s forwards;
@@ -42,6 +54,15 @@
     left: 0;
     border-left: 5px solid #003540;
     border-bottom: 5px solid #003540;
+  }
+}
+
+@keyframes transition-to-opaque {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

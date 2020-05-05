@@ -23,44 +23,54 @@ body {
 // Utility classes for whiteboard transitions...
 // Not sure where to put them, as they could be used by Md and Sm whiteboards,
 // and currently they're getting sent down from About/Projects/Home ... convoluted
-.slide-up {
-  transform: translateY(150px);
-  animation: slide-vertical 3s ease forwards;
-}
+// .slide-up {
+//   transform: translateY(150px);
+//   animation: slide-vertical 3s ease forwards;
+// }
 
-.slide-down {
-  transform: translateY(-150px);
-  animation: slide-vertical 3s ease forwards;
-}
+// .slide-down {
+//   // transform: translateY(-150px);
+//   transform: translateY(-100%);
+//   animation: slide-down 7s ease forwards;
+// }
 
 // @keyframes slide-vertical {
 // to { transform: translateY(0); }
 // }
 
-@keyframes slide-vertical {
-  from {
-    transform: translateY(500px);
-    opacity: 1;
-  } to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+// @keyframes slide-vertical {
+//   from {
+//     transform: translateY(500px);
+//     opacity: 1;
+//   } to {
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
+// }
+// @keyframes slide-down {
+//   from {
+//     transform: translateY(-100%);
+//     opacity: 1;
+//   } to {
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
+// }
 
-.slide-left {
-  transform: translateX(150px);
-  animation: slide-horizontal 3s ease forwards;
-}
+// .slide-left {
+//   transform: translateX(100%);
+//   animation: slide-horizontal 3s ease forwards;
+// }
 
 
-.slide-right {
-transform: translateX(-150px);
-animation: slide-horizontal 3s ease forwards;
-}
+// .slide-right {
+// transform: translateX(-100%);
+// animation: slide-horizontal 3s ease forwards;
+// }
 
-@keyframes slide-horizontal {
-to { transform: translateX(0); }
-}
+// @keyframes slide-horizontal {
+// to { transform: translateX(0); }
+// }
 
 
 // I was conditionally changing slide-left/right to be slide-vertical here in css,

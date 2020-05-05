@@ -1,14 +1,20 @@
 @import '../../utilities';
 
-// Not sure what's the best way to handle this, maybe just send it in as prop style/class when calling Component
-// Want 
-.WhiteboardMd {
-  .WhiteboardSm {
-    // min-width: 450px;
-  }
-}
+
+// .WhiteboardMd {
+//   .WhiteboardSm {
+//     // min-width: 450px;
+//   }
+// }
 
 .WhiteboardSm {
+  // 370 is min size of about section projector screen right now...
+  // When they are horizontally side by side, they take up 50% width each
+  // When vertically, height is based on content.
+  // When vertical, want projector to slide cleanly from hidden under text whiteboard,
+  // so need text whiteboard to be at least as tall as projector whiteboard
+  min-height: 370px;
+  // min-height: 200px;
   // cursor: pointer;  // for testing purposes
   padding: 50px 20px;
   background: white;
@@ -17,9 +23,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  min-height: 200px;
   flex: 1 1 0;
   // max-width: 600px;
   // min-width: 100%;
@@ -37,6 +42,8 @@
 .WhiteboardSm::before {
   content: '';
   position: absolute;
+  // top: 0;
+  // left: 0;
   // z-index: 200;
   height: calc(100% - 5px); // to get corner wedge accentuated
   // height: calc(100%); // to get corner wedge accentuated
@@ -50,6 +57,8 @@
 .WhiteboardSm::after {
   content: '';
   position: absolute;
+  // top: 0;
+  // left: 0;
   height: 100%;
   width: calc(100% - 5px);
   box-shadow: 
@@ -58,11 +67,107 @@
   pointer-events: none;
 }
 
-.WhiteboardSm:nth-of-type(2n+1) {
+.transparent {
+  opacity: 0;
+}
+
+.slide-down {
+  // transform: translateY(-150px);
+  transform: translateY(-100%);
+  animation: slide-down 1s .4s ease forwards;
+}
+
+// For top big board that slides down at beginning, underlying board will also be
+// triggered, so give it a longer delay before starting
+.slide-down-big .slide-down {
+  animation-delay: 3s;
+}
+
+.slide-left {
+  transform: translateX(100%);
+  animation: slide-left 1s 2.5s forwards;
+}
+
+.slide-right {
+transform: translateX(-100%);
+animation: slide-right 1s 2.5s forwards;
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+// @keyframes slide-horizontal {
+// to { transform: translateX(0); }
+// }
+
+// .play .slide-left, .play .slide-right {
+//   animation-play-state: running;
+// }
+
+// .WhiteboardSm:nth-of-type(2n+1) {
+//   z-index: 10;
+//   box-shadow: inset 0 0 2px rgba(0,0,0, 1),
+//               0 0 12px black;
+// }
+
+.WhiteboardSm.upper-z-board {
   z-index: 10;
   box-shadow: inset 0 0 2px rgba(0,0,0, 1),
               0 0 12px black;
 }
+
+// WhiteboardMd converts to flex-column at med breakpoint. At that point, always
+// want the upper-z-board to be the "upper y board" too
+@include media-breakpoint-down(md) {
+  .WhiteboardSm.upper-z-board {
+    order: -1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // .WhiteboardSm:nth-of-type(2n)::after {
 //   border-top: 5px solid darken(silver, 15%);
 //   border-bottom: 5px solid darken(silver, 15%);

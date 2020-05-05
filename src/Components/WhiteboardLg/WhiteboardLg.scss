@@ -5,7 +5,8 @@
   max-width: calc(83%);
   padding: 30px 0px;
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   // height: 100%;  // I think doesn't work b/c parent's height is dynamically determined...?
@@ -16,8 +17,14 @@
     margin-bottom: 70px;
   }
 
-  & > .WhiteboardSm:not(:last-child) {
-    margin-bottom: 50px;
+  & > .WhiteboardSm {
+    width: 100%;
+    &:nth-of-type(odd) {
+      z-index: 10;
+    }
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
   }
 }
 

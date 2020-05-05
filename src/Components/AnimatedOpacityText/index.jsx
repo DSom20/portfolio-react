@@ -1,30 +1,37 @@
-import React, { useRef, useEffect, useState } from 'react';
+// import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import './AnimatedOpacityText.scss';
 
 function AnimatedOpacityText({ transitionOnScroll, transitionOptions, animationDelay = 0, ...props }) {
-  const [animationActivated, setAnimationActivated] = useState(false);
-  const observable = useRef();
-  const observer = useRef();
+  /* I was using IntersectionObserver to trigger animation, but there will always be a parent
+    with its own IntersectionObserver. I changed it so the parent, when intersected initially,
+    gets a classname "play". AnimatedOpacityText animation starts paused, but it has a selector
+    such that when it is a child of a "play"ed element, its animated transitions to "running"
+  */
 
-  useEffect(() => {
-    if (transitionOnScroll) {
-      let options = transitionOptions || {}
-      let intersectionHandler = (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setAnimationActivated(true);
-            observer.unobserve(entry.target);
-          }
-        })
-      }
-      observer.current = new IntersectionObserver(intersectionHandler, options);
-      observer.current.observe(observable.current);
+  // const [animationActivated, setAnimationActivated] = useState(false);
+  // const observable = useRef();
+  // const observer = useRef();
 
-      return () => observer.current.disconnect();
-    } else {
-      setAnimationActivated(true);
-    }
-  }, [setAnimationActivated, observable, observer, transitionOnScroll, transitionOptions, animationDelay])
+  // useEffect(() => {
+  //   if (transitionOnScroll) {
+  //     let options = transitionOptions || {}
+  //     let intersectionHandler = (entries, observer) => {
+  //       entries.forEach(entry => {
+  //         if (entry.isIntersecting) {
+  //           setAnimationActivated(true);
+  //           observer.unobserve(entry.target);
+  //         }
+  //       })
+  //     }
+  //     observer.current = new IntersectionObserver(intersectionHandler, options);
+  //     observer.current.observe(observable.current);
+
+  //     return () => observer.current.disconnect();
+  //   } else {
+  //     setAnimationActivated(true);
+  //   }
+  // }, [setAnimationActivated, observable, observer, transitionOnScroll, transitionOptions, animationDelay])
 
   // useEffect(() => {
   //   if (props.transitionCallback) {
@@ -37,10 +44,12 @@ function AnimatedOpacityText({ transitionOnScroll, transitionOptions, animationD
 
   return (
     <div className="AnimatedOpacityText-container">
-      <div ref={observable} className={'AnimatedOpacityText ' + (props.className || '')} id={props.id} style={props.style}>
+      <div className={'AnimatedOpacityText ' + (props.className || '')} id={props.id} style={props.style}>
+      {/* <div ref={observable} className={'AnimatedOpacityText ' + (props.className || '')} id={props.id} style={props.style}> */}
         {props.children}
       </div>
-      <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} ${animationActivated ? "AnimatedOpacityText-animation" : ''}`} ></div>
+      <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} AnimatedOpacityText-overlay-animation`} ></div>
+      {/* <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} ${animationActivated ? "AnimatedOpacityText-overlay-animation" : ''}`} ></div> */}
     </div>
   )
 }

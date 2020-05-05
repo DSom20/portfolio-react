@@ -1,3 +1,5 @@
+@import '../../utilities';
+
 .AnimatedOpacityText-container {
   overflow: hidden;
   position: relative;
@@ -16,11 +18,16 @@
     height: 100%;
     transform: translateX(-50%); //gets opaque part fully covering text
     background: linear-gradient(90deg, rgba(255,255,255,0) 45%, rgba(255,255,255,1) 50%);
+    
+    &-animation {
+      animation: slide-overlay-right 5s forwards paused;
+    }
   }
 
-  &-animation {
-    animation: slide-overlay-right 5s forwards;
-  }
+}
+
+.play .AnimatedOpacityText-overlay-animation {
+  animation-play-state: running;
 }
 
 @keyframes slide-overlay-right {
@@ -29,23 +36,23 @@
   }
 }
 
-.animation-delay-0 {
-  animation-delay: 0;
-}
+// .animation-delay-0 {
+//   animation-delay: 0;
+// }
 
-.animation-delay-1 {
-  animation-delay: 1s;
-}
-.animation-delay-2 {
-  animation-delay: 2s;
-}
-.animation-delay-3 {
-  animation-delay: 3s;
-}
-.animation-delay-4 {
-  animation-delay: 4s;
-}
-.animation-delay-5 {
-  animation-delay: 5s;
-}
+// .animation-delay-1 {
+//   animation-delay: 1s;
+// }
+// .animation-delay-2 {
+//   animation-delay: 2s;
+// }
+// .animation-delay-3 {
+//   animation-delay: 3s;
+// }
+// .animation-delay-4 {
+//   animation-delay: 4s;
+// }
+// .animation-delay-5 {
+//   animation-delay: 5s;
+// }
 
