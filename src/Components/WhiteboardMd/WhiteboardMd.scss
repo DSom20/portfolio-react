@@ -12,9 +12,9 @@
 
 }
 
-.WhiteboardMd:not(:nth-of-type(1)) {
-  margin-top: 20px;
-}
+// .WhiteboardMd:not(:nth-of-type(1)) {
+//   margin-top: 20px;
+// }
 
 .WhiteboardMd::after {
   z-index: 100;
