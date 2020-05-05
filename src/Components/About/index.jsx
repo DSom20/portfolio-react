@@ -45,7 +45,9 @@ function About() {
   let slideRightIntersectionCallback = (entries,observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        if (window.innerWidth > 768) {
+        // css breakpoint-md, when whiteboardMd becomes flex-column instead of 
+        // flex-row like it is at larger at larger widths
+        if (window.innerWidth > 992) { 
           entry.target.classList.add("slide-right");
         } else {
           entry.target.classList.add("slide-up");
@@ -57,7 +59,7 @@ function About() {
   let slideLeftIntersectionCallback = (entries,observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 992) {
           entry.target.classList.add("slide-left");
         } else {
           entry.target.classList.add("slide-up");

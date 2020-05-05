@@ -1,7 +1,8 @@
 @import '../../utilities';
 
 .WhiteboardLg {
-  width: 900px;
+  width: 1400px;
+  max-width: calc(83%);
   padding: 30px 0px;
   display: flex;
   flex-wrap: wrap;
@@ -39,16 +40,22 @@
 }
 
 
-@include media-breakpoint-down(md) {
-  .WhiteboardLg {
-    width: 600px;
-  }
-}
+// @include media-breakpoint-down(lg) {
+//   .WhiteboardLg {
+//     // width: 1000px;
+//   }
+// }
+// @include media-breakpoint-down(md) {
+//   .WhiteboardLg {
+//     // width: 792px;
+//   }
+// }
 
 @include media-breakpoint-down(sm) {
   .WhiteboardLg {
     // Tried 100vw first, but y scrollbar popping up messed it up. Use 100% instead.
     // width: calc(100vw - 20px); // - 20px to account for ::after border
-    width: calc(100% - 20px);
+    // eh, 22 px, get a tiny bit of that black side shadow
+    max-width: calc(100% - 22px);
   }
 }

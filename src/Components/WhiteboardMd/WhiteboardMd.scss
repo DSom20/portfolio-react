@@ -8,8 +8,14 @@
   // overflow: hidden;
   // align-self: stretch;
   // flex: 1 1 auto;
-  width: 900px;
+  // width: 900px;
+  width: 100%;
+}
 
+@include media-breakpoint-down(md) {
+  .WhiteboardMd {
+    flex-direction: column;
+  }
 }
 
 // .WhiteboardMd:not(:nth-of-type(1)) {
