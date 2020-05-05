@@ -93,8 +93,8 @@ function ProjectorScreen({ animationDelayForLargeScreen, animationDelayForSmallS
 
   const loadingJSX = (
     <div className={`ProjectorScreen ProjectorScreen-loading`}>
-      <p>Project ready in</p>
-      <p>{count}</p>
+      <p className="ProjectorScreen-countdown">Projector ready in:</p>
+      <p className="ProjectorScreen-countdown">{count}</p>
     </div>
   )
 

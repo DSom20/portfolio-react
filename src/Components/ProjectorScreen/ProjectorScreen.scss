@@ -3,6 +3,8 @@
 .ProjectorScreen {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
+  align-content: center;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -16,6 +18,13 @@
   // align-self: stretch;
   // justify-self: stretch;
   background-color: #bddef4;
+
+  &-countdown {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
 
   &#{&}-preloading {
     background-color: black;
