@@ -67,77 +67,77 @@
   pointer-events: none;
 }
 
-.transparent {
-  opacity: 0;
-}
-
-.slide-down {
-  // transform: translateY(-150px);
-  transform: translateY(-100%);
-  animation: slide-down 1s .4s ease forwards;
-}
-
-// For top big board that slides down at beginning, underlying board will also be
-// triggered, so give it a longer delay before starting
-.slide-down-big .slide-down {
-  animation-delay: 3s;
-}
-
-.slide-left {
-  transform: translateX(100%);
-  animation: slide-left 1s 2.5s forwards;
-}
-
-.slide-right {
-transform: translateX(-100%);
-animation: slide-right 1s 2.5s forwards;
-}
-
-@keyframes slide-down {
-  from {
-    transform: translateY(-100%);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-right {
-  from {
-    transform: translateX(-100%);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-left {
-  from {
-    transform: translateX(100%);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-// @keyframes slide-horizontal {
-// to { transform: translateX(0); }
+// .transparent {
+//   opacity: 0;
 // }
 
-// .play .slide-left, .play .slide-right {
-//   animation-play-state: running;
+// .slide-down {
+//   // transform: translateY(-150px);
+//   transform: translateY(-100%);
+//   animation: slide-down 1s .4s ease forwards;
 // }
 
-// .WhiteboardSm:nth-of-type(2n+1) {
-//   z-index: 10;
-//   box-shadow: inset 0 0 2px rgba(0,0,0, 1),
-//               0 0 12px black;
+// // For top big board that slides down at beginning, underlying board will also be
+// // triggered, so give it a longer delay before starting
+// .slide-down-big .slide-down {
+//   animation-delay: 3s;
 // }
+
+// .slide-left {
+//   transform: translateX(100%);
+//   animation: slide-left 1s 2.5s forwards;
+// }
+
+// .slide-right {
+// transform: translateX(-100%);
+// animation: slide-right 1s 2.5s forwards;
+// }
+
+// @keyframes slide-down {
+//   from {
+//     transform: translateY(-100%);
+//     opacity: 1;
+//   }
+//   to {
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes slide-right {
+//   from {
+//     transform: translateX(-100%);
+//     opacity: 1;
+//   }
+//   to {
+//     transform: translateX(0);
+//     opacity: 1;
+//   }
+// }
+
+// @keyframes slide-left {
+//   from {
+//     transform: translateX(100%);
+//     opacity: 1;
+//   }
+//   to {
+//     transform: translateX(0);
+//     opacity: 1;
+//   }
+// }
+// // @keyframes slide-horizontal {
+// // to { transform: translateX(0); }
+// // }
+
+// // .play .slide-left, .play .slide-right {
+// //   animation-play-state: running;
+// // }
+
+// // .WhiteboardSm:nth-of-type(2n+1) {
+// //   z-index: 10;
+// //   box-shadow: inset 0 0 2px rgba(0,0,0, 1),
+// //               0 0 12px black;
+// // }
 
 .WhiteboardSm.upper-z-board {
   z-index: 10;

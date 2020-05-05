@@ -35,70 +35,13 @@ import weddingRingsIcon from "../../images/aboutme/icons8-wedding-rings-100.png"
 
 function About() {
 
-  let slideUpIntersectionCallback = (entries,observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("slide-up", "play");
-        observer.unobserve(entry.target);
-      }
-    })
-  }
-  let slideDownBigIntersectionCallback = (entries,observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("slide-down-big", "play");
-        observer.unobserve(entry.target);
-      }
-    })
-  }
-
-  // I only have slideRight and left on whiteboard smalls. I really wanted to avoid
-  // IntersectionObservers on smalls that are children of medium, ideally just having
-  // IO on the medium, and when it intersects it gets a "play" css rule which could
-  // trigger children's animations to play as well (after their appropriate delays).
-  // BUT, the small children need to slide vertically on small screens and horizontally
-  // on large screens. If I simply give them a different animation based on css media
-  // breakpoints, then whenever the viewport size changes, the other animation will retrigger.
-  // SO, I have to keep an IO on the children small whiteboards and give them an appropriate class
-  // right at the time where they get scrolled to, and that class will stay forever so 
-  // the animation only ever gets run once. (Could theoretically be problem if person changes
-  // viewport size right as they scroll to it...)
-  let slideRightIntersectionCallback = (entries,observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // css breakpoint-md, when whiteboardMd becomes flex-column instead of 
-        // flex-row like it is at larger at larger widths
-        // 
-        if (window.innerWidth > 992) { 
-          entry.target.classList.add("slide-right");
-        } else {
-          entry.target.classList.add("slide-down");
-        }
-        observer.unobserve(entry.target);
-      }
-    })
-  }
-  let slideLeftIntersectionCallback = (entries,observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        if (window.innerWidth > 992) {
-          entry.target.classList.add("slide-left");
-        } else {
-          entry.target.classList.add("slide-down");
-        }
-
-        observer.unobserve(entry.target);
-      }
-    })
-  }
-
-  let slideBasicIntersectionOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0
-  }
-
-  // const ref1 = useRef();
+  // pass in to IntersectionObserverWhiteboardMd/Sm like
+  //  transitionOptions={slideBasicIntersectionOptions}
+  // let slideBasicIntersectionOptions = {
+  //   root: null,
+  //   rootMargin: "0px", // might want to change this value at some point...
+  //   threshold: 0
+  // }
 
   return (
     <WhiteboardLg className="About">
@@ -106,7 +49,9 @@ function About() {
       <p className="About-profile-image-container">
         <img  src={profilePic} alt="headshot of david sommers" height="800px" width="800px"/>
       </p>
-      <IntersectionObserverWhiteboardMd className="transparent" transitionCallback={slideDownBigIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+      <IntersectionObserverWhiteboardMd 
+        animationClassName="slide-down-big"
+        >
         <WhiteboardSm className="upper-z-board">
           <h3 className="About-header-text">What I Do</h3>
           <AnimatedOpacityText className="About-detail-text" animationDelay={1}>
@@ -118,7 +63,7 @@ function About() {
             </p>
           </AnimatedOpacityText>
         </WhiteboardSm>
-        <IntersectionObserverWhiteboardSm className="transparent" transitionCallback={slideRightIntersectionCallback}>
+        <IntersectionObserverWhiteboardSm  animationClassName="slide-right">
           <ProjectorScreen frame transitionOnScroll animationDelayForLargeScreen={3500} animationDelayForSmallScreen={4000}>
             <ImageWindow>
               <ImageLineup className="About-coding-images">
@@ -135,8 +80,8 @@ function About() {
           </ProjectorScreen>
         </IntersectionObserverWhiteboardSm>
       </IntersectionObserverWhiteboardMd>
-      <IntersectionObserverWhiteboardMd className="transparent" transitionCallback={slideUpIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
-        <IntersectionObserverWhiteboardSm  className="transparent" transitionCallback={slideLeftIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+      <IntersectionObserverWhiteboardMd  animationClassName="slide-up" >
+        <IntersectionObserverWhiteboardSm   animationClassName="slide-left" >
           <ProjectorScreen frame transitionOnScroll animationDelayForLargeScreen={3500} animationDelayForSmallScreen={1400}>
             <ImageWindow className="About-career-window">
               <ImageLineup className="About-career-images" flexRow>
@@ -167,7 +112,7 @@ function About() {
           </ AnimatedOpacityText>
         </WhiteboardSm>
       </IntersectionObserverWhiteboardMd>
-      <IntersectionObserverWhiteboardMd  transitionCallback={slideUpIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+      <IntersectionObserverWhiteboardMd  animationClassName="slide-up" >
         <WhiteboardSm  className="upper-z-board">
           <h3 className="About-header-text">Things I Enjoy<span>(Besides coding)</span></h3>
           <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={1}>
@@ -182,7 +127,7 @@ function About() {
             </ul>
           </AnimatedOpacityText>
         </WhiteboardSm>
-        <IntersectionObserverWhiteboardSm className="transparent" transitionCallback={slideRightIntersectionCallback} transitionOptions={slideBasicIntersectionOptions}>
+        <IntersectionObserverWhiteboardSm  animationClassName="slide-right" >
           <ProjectorScreen frame transitionOnScroll animationDelayForLargeScreen={3500} animationDelayForSmallScreen={1400}>
               <ImageWindow>
                   <ImageLineup className="About-interests-images">

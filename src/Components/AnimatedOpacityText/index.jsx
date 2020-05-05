@@ -48,6 +48,8 @@ function AnimatedOpacityText({ transitionOnScroll, transitionOptions, animationD
       {/* <div ref={observable} className={'AnimatedOpacityText ' + (props.className || '')} id={props.id} style={props.style}> */}
         {props.children}
       </div>
+      {/* !!animation-delay is showing up as 3 separate identical rules in dev tools inspector...
+      not sure why */}
       <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} AnimatedOpacityText-overlay-animation`} ></div>
       {/* <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} ${animationActivated ? "AnimatedOpacityText-overlay-animation" : ''}`} ></div> */}
     </div>
