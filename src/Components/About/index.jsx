@@ -55,13 +55,11 @@ function About() {
           About Me
         </h1>
       </p>
-      <IntersectionObserverWhiteboardMd 
-        animationClassName="slide-down-big"
-        >
+      <IntersectionObserverWhiteboardMd animationClassName="slide-down-big">
         <WhiteboardSm className="upper-z-board">
           <h3 className="About-header-text">What I Do</h3>
-          <AnimatedOpacityText className="About-detail-text" animationDelay={1}>
-            <p>
+          <AnimatedOpacityText animationDelay={1}>
+            <p  className="About-detail-text">
               I'm a software engineer based in the San Francisco Bay Area.
               I love creating cleanly coded, well tested, buttery smooth web apps.
               My go to tech stack is React, Node / Express, and PostgreSQl. I've also
@@ -105,15 +103,15 @@ function About() {
         </IntersectionObserverWhiteboardSm>
         <WhiteboardSm className="upper-z-board">
           <h3 className="About-header-text">My Journey</h3>
-          <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={1}>
-            <p>I studied humanities at Pepperdine to explore the big ideas.
+          <AnimatedOpacityText transitionOnScroll animationDelay={1}>
+            <p className="About-detail-text">I studied humanities at Pepperdine to explore the big ideas.
               Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. First on an ambulance, then in SF General's emergency department. Got to work with tons of awesome people along the way. Then I pursued nursing for a bit.
             </p>
-            <p>
-            Being a healthcare provider was an amazing experience. However, I was lacking a certain passion for it. So, craving for a career I intrinsically enjoyed, I looked into software engineering in my spare time. Did some self-study to confirm I loved it, then made the big switch! Dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
+            <p className="About-detail-text">
+              Being a healthcare provider was an amazing experience. However, an intrinsic passion for the day-to-day work was missing. So, in search for that passion, I looked into software engineering in my spare time. Did some self-study to confirm I loved it, then made the big switch! Dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
             </p>
-            <p>
-            Now, I'm on the hunt for new coding opportunities!
+            <p className="About-detail-text">
+              Now, I'm on the hunt for new coding opportunities!
             </p>
           </ AnimatedOpacityText>
         </WhiteboardSm>
@@ -121,8 +119,8 @@ function About() {
       <IntersectionObserverWhiteboardMd  animationClassName="slide-up" >
         <WhiteboardSm  className="upper-z-board">
           <h3 className="About-header-text">Things I Enjoy<span>(Besides coding)</span></h3>
-          <AnimatedOpacityText className="About-detail-text" transitionOnScroll animationDelay={1}>
-            <ul>
+          <AnimatedOpacityText transitionOnScroll animationDelay={1}>
+            <ul className="About-detail-text">
               <li>Playing Basketball and Volleyball <span>(especially the dunking and spiking parts)</span></li> 
               <li>Wightlifting <span>(especially the parts...that help me dunk and spike better)</span></li> 
               <li>Board Games <span>(Recent Favorite: Cryptid. Classic Favorite: Cosmic Encounter)</span> </li> 

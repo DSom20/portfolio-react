@@ -1,0 +1,43 @@
+.UnderlineOnHoverAnchor {
+  position: relative;
+  color: blue;
+  // text-decoration: underline blue solid;
+  text-decoration: none;
+  // pointer-events: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 0px);
+    height: 114%;
+    top: 0px;
+    left: 0px;
+    border-bottom: 2px solid blue;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .4s;
+  }
+  &:hover::after {
+    transform: scaleX(1);
+  }
+
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   width: calc(100% - 14px);
+  //   height: 130%;
+  //   top: 0px;
+  //   left: 7px;
+  //   border-bottom: 2px solid blue;
+  //   transform: scaleX(0);
+  //   transform-origin: left;
+  //   transition: transform .2s;
+  // }
+
+  // &-animate-underline::before {
+  //   animation: slide-underline-right .3s forwards;
+  // }
+  // &-animate-underline::after {
+  //   transform: scaleX(1);
+  // }
+}

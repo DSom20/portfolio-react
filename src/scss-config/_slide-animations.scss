@@ -48,7 +48,7 @@ animation: slide-right 1s 2.5s forwards;
 
 @keyframes slide-up {
   from {
-    transform: translateY(100vh);
+    transform: translateY(calc(100vh + 100%));
     opacity: 1;
   } to {
     transform: translateY(0);

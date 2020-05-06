@@ -38,8 +38,6 @@ function Home({ delay }) {
           <AnimatedOpacityText startAnimationOnMounting animationDuration={2} animationDelay={4}>
             <h1>I'm a software engineer</h1>
           </AnimatedOpacityText>
-          
-
         </WhiteboardSm>
       </CSSTransition>
       <CSSTransition in appear timeout={delay + 1000 + 5000} classNames="Home-wb2-slide-down">

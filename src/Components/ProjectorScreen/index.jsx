@@ -133,10 +133,18 @@ export default ProjectorScreen;
 // is meant to prevent the projector from starting to load until the containing whiteboard(s) have gone
 // through their animations. But with the problem stated, the whiteboard transitions would run, 
 // and then the user would scroll to the projector and it would start its delay then...long delay
-// for user.) So, I ended up passing down a prop from the whiteboard container if/when it has intersected
+// for user.) So, I ended up passing down a prop from the whiteboard container if/when the 
+// whiteboard has intersected
 // as well as the width of the screen at that time, so that we initialize the projector animations then
 // and also can apply the appropriate delays based on screen width right then
+// Disadvantage now though: for horizontal, particularly for second projector: whiteboard 
+// could intersect incidentally because first section was small so can see a little bit of 
+// second section. But can't quite see the projector: so the user is reading the first section
+// and the second section and its projector have already gone through their animations...
+// COULD give intersectionObserver options of negative root margin to not trigger that second animation
+// so early...
 // (Note: on original, was setting ref={observable} on the notYetLoading JSX div)
+
   // // Check if expected to start transition only on scroll (ie when visible)
   // // If so, setup IntersectionObserver to call setWillStartLoading once visible
   // // Else call setWillStartLoading right away
