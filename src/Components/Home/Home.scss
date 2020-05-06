@@ -1,13 +1,14 @@
 @import '../../utilities';
 
 .Home {
+  text-align: center;
   a:hover {
     color: yellow;
   }
 
   &-wb1-slide-down {
     &-appear {
-      transform: translateY(-100%);
+      transform: translateY(calc(-100% - #{$whiteboard-lg-padding-y}));
   
       &-active {
         transform: translateY(0);
@@ -18,6 +19,7 @@
       }
   
       &-done {
+        margin-bottom: $whiteboard-lg-padding-y;
         opacity: 1;
         color: red
       }
@@ -25,12 +27,16 @@
   }
 
   &-wb2-slide-down {
+    // Second board starts under where 1st board will end up, but it starts hidden.
+    // Immediately after top board finishes animation and is covering second board,
+    // then reveal second board and start its downwards transition
     &-appear {
-      transform: translateY(-100vh);
-  
+      transform: translateY(calc(-100% - #{$whiteboard-sm_margin-bottom_not-last-child_with-lg-direct-parent}));
+      opacity: 0;
       &-active {
+        opacity: 1;
         transform: translateY(0);
-        transition: transform 1000ms 2000ms;  // don't like having to hardcode delay here...
+        transition: transform 1000ms 2000ms, opacity 0s 2s;  // don't like having to hardcode delay here...
       }
   
       &-done {
@@ -116,13 +122,13 @@
 //   transform: translateY(-500px)
 // }
 
-@include media-breakpoint-down(md) {
-  .Home-whiteboard-container {
-    width: 600px;
-  }
-}
-@include media-breakpoint-down(sm) {
-  .Home-whiteboard-container {
-    width: calc(100vw - 20px);
-  }
-}
+// @include media-breakpoint-down(md) {
+//   .Home-whiteboard-container {
+//     width: 600px;
+//   }
+// }
+// @include media-breakpoint-down(sm) {
+//   .Home-whiteboard-container {
+//     width: calc(100vw - 20px);
+//   }
+// }

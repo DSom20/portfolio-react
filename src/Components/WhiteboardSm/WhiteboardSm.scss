@@ -67,6 +67,20 @@
   pointer-events: none;
 }
 
+.WhiteboardSm.upper-z-board {
+  z-index: 10;
+  box-shadow: inset 0 0 2px rgba(0,0,0, 1),
+              0 0 12px black;
+}
+
+// WhiteboardMd converts to flex-column at med breakpoint. At that point, always
+// want the upper-z-board to be the "upper y board" too
+@include media-breakpoint-down(md) {
+  .WhiteboardSm.upper-z-board {
+    order: -1;
+  }
+}
+
 // .transparent {
 //   opacity: 0;
 // }
@@ -139,19 +153,7 @@
 // //               0 0 12px black;
 // // }
 
-.WhiteboardSm.upper-z-board {
-  z-index: 10;
-  box-shadow: inset 0 0 2px rgba(0,0,0, 1),
-              0 0 12px black;
-}
 
-// WhiteboardMd converts to flex-column at med breakpoint. At that point, always
-// want the upper-z-board to be the "upper y board" too
-@include media-breakpoint-down(md) {
-  .WhiteboardSm.upper-z-board {
-    order: -1;
-  }
-}
 
 
 

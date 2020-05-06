@@ -3,7 +3,7 @@
 .WhiteboardLg {
   width: 1400px;
   max-width: calc(83%);
-  padding: 30px 0px;
+  padding: $whiteboard-lg-padding-y 0px;
   display: flex;
   // flex-wrap: wrap;
   flex-direction: column;
@@ -23,7 +23,7 @@
       z-index: 10;
     }
     &:not(:last-child) {
-      margin-bottom: 50px;
+      margin-bottom: $whiteboard-sm_margin-bottom_not-last-child_with-lg-direct-parent;
     }
   }
 }
