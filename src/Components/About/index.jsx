@@ -46,8 +46,14 @@ function About() {
   return (
     <WhiteboardLg className="About">
       {/* p rather than div to allow :nth-child to work properly in WhiteboardMd css */}
-      <p className="About-profile-image-container">
-        <img  src={profilePic} alt="headshot of david sommers" height="800px" width="800px"/>
+      <p className="About-title-section-container">
+        <p className="About-title-profile-image-container">
+          <img  src={profilePic} alt="headshot of david sommers" height="800px" width="800px"/>
+        </p>
+        {/* <p className="About-title-filler"></p> */}
+        <h1 className="About-title-text">
+          About Me
+        </h1>
       </p>
       <IntersectionObserverWhiteboardMd 
         animationClassName="slide-down-big"
@@ -104,7 +110,7 @@ function About() {
               Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. First on an ambulance, then in SF General's emergency department. Got to work with tons of awesome people along the way. Then I pursued nursing for a bit.
             </p>
             <p>
-            Craving a career I was passionate about, I looked into software engineering in my spare time. Did some self-study to confirm I loved it, then made the big switch! Dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
+            Being a healthcare provider was an amazing experience. However, I was lacking a certain passion for it. So, craving for a career I intrinsically enjoyed, I looked into software engineering in my spare time. Did some self-study to confirm I loved it, then made the big switch! Dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
             </p>
             <p>
             Now, I'm on the hunt for new coding opportunities!

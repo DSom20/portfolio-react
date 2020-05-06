@@ -12,6 +12,69 @@
     //   font-weight: 100;
     //   font-size: 20px;
     // }
+  &-title {
+
+    &-section-container {
+      margin-bottom: 46px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      & > p, & > h1 {
+        margin-right: 50px;
+        margin-left: 50px;
+      }
+    }
+
+    &-text {
+      font-size: 50px;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 0;
+      // text-wrap: none;
+    }
+
+    // &-filler {
+    //   flex: 0 1 200px;
+    // }
+
+    &-profile-image-container {
+      position: relative;
+      // margin: 0px 50px 0px 50px;
+      // margin-right: auto;
+      flex: 0 0 auto;
+      width: 200px;
+      height: 200px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.7);
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  
+    // Tape to hold up pic
+    &-profile-image-container::before {
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: -11px;
+      width: 10px;
+      height: 40px;
+      background-color: lighten(rgb(73, 92, 233), 8%);  //#6d7ded
+      transform: rotate(45deg)
+    }
+    &-profile-image-container::after {
+      content: '';
+      position: absolute;
+      right: 1px;
+      top: -11px;
+      width: 10px;
+      height: 40px;
+      background-color: #6d7ded;
+      transform: rotate(-45deg)
+    }
+
+  }
   h3 {
     margin-top: 0;
     margin-bottom: 0;
@@ -44,40 +107,15 @@
     }
   }
 
-
-  &-profile-image-container {
-    position: relative;
-    margin-bottom: 46px;
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.7);
-    img {
-      max-width: 100%;
-      max-height: 100%;
+  @include media-breakpoint-down(450px) {
+    .About-title-text {
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 
-  // Tape to hold up pic
-  &-profile-image-container::before {
-    content: '';
-    position: absolute;
-    left: 1px;
-    top: -11px;
-    width: 10px;
-    height: 40px;
-    background-color: lighten(rgb(73, 92, 233), 8%);  //#6d7ded
-    transform: rotate(45deg)
-  }
-  &-profile-image-container::after {
-    content: '';
-    position: absolute;
-    right: 1px;
-    top: -11px;
-    width: 10px;
-    height: 40px;
-    background-color: #6d7ded;
-    transform: rotate(-45deg)
-  }
+
+
 
   &-coding-images {
     animation: 20s linear 0s infinite normal none running codingLineup;
