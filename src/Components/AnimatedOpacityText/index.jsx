@@ -2,7 +2,7 @@
 import React from 'react';
 import './AnimatedOpacityText.scss';
 
-function AnimatedOpacityText({ transitionOnScroll, transitionOptions, animationDelay = 0, ...props }) {
+function AnimatedOpacityText({ startAnimationOnMounting = false, animationDuration = 5, animationDelay = 0, ...props }) {
   /* I was using IntersectionObserver to trigger animation, but there will always be a parent
     with its own IntersectionObserver. I changed it so the parent, when intersected initially,
     gets a classname "play". AnimatedOpacityText animation starts paused, but it has a selector
@@ -50,7 +50,10 @@ function AnimatedOpacityText({ transitionOnScroll, transitionOptions, animationD
       </div>
       {/* !!animation-delay is showing up as 3 separate identical rules in dev tools inspector...
       not sure why */}
-      <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} AnimatedOpacityText-overlay-animation`} ></div>
+      <div className={`AnimatedOpacityText-overlay AnimatedOpacityText-overlay-animation 
+                      animation-delay-${animationDelay} animation-duration-${animationDuration}
+                      ${startAnimationOnMounting && 'play'}`}>
+      </div>
       {/* <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} ${animationActivated ? "AnimatedOpacityText-overlay-animation" : ''}`} ></div> */}
     </div>
   )

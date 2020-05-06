@@ -18,7 +18,10 @@
     height: 100%;
     transform: translateX(-50%); //gets opaque part fully covering text
     background: linear-gradient(90deg, rgba(255,255,255,0) 45%, rgba(255,255,255,1) 50%);
-    
+    //Allows for someone to click a link immediately upon seeing it
+    //Although technically they could click it while the opaque portion is still over it...
+    // Really I should do the math and make the overlay tighter rather than full 200% width
+    pointer-events: none;
     &-animation {
       animation: slide-overlay-right 5s forwards paused;
     }
@@ -26,7 +29,7 @@
 
 }
 
-.play .AnimatedOpacityText-overlay-animation {
+.play .AnimatedOpacityText-overlay-animation, .play.AnimatedOpacityText-overlay-animation {
   animation-play-state: running;
 }
 

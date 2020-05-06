@@ -3,7 +3,15 @@
 .Home {
   text-align: center;
   a:hover {
-    color: yellow;
+    // color: yellow;
+  }
+
+  & #wb-1 {
+    // Hack. Current small wb min-height is 370 (should make variable).
+    // When wb-2 appears beneath it, when they are equal height, wb2 box shadow
+    //  suddenly doubles the darkness of wb-1's shadow. So...hack: make wb-1 
+    // slightly larger. Only works when they are both at their min-heights.
+    min-height: 380px;
   }
 
   &-wb1-slide-down {
@@ -15,13 +23,15 @@
         // duration, then delay
         // don't like having to hardcode these numbers here though...
           // maybe define classes in js to utilize props passed down...
+          // The delay here refers to the animation time of the router page appearing
+          //  see RoutesAnimated.scss
         transition: transform 1000ms 1000ms;
       }
   
       &-done {
         margin-bottom: $whiteboard-lg-padding-y;
         opacity: 1;
-        color: red
+        // color: red
       }
     }
   }
@@ -31,21 +41,21 @@
     // Immediately after top board finishes animation and is covering second board,
     // then reveal second board and start its downwards transition
     &-appear {
-      transform: translateY(calc(-100% - #{$whiteboard-sm_margin-bottom_not-last-child_with-lg-direct-parent}));
+      transform: translateY(calc(-100% - 5px - #{$whiteboard-sm_margin-bottom_not-last-child_with-lg-direct-parent}));
       opacity: 0;
       &-active {
         opacity: 1;
         transform: translateY(0);
-        transition: transform 1000ms 2000ms, opacity 0s 2s;  // don't like having to hardcode delay here...
+        transition: transform 1000ms 5000ms, opacity 0s 2s;  // don't like having to hardcode delay here...
       }
   
       &-done {
         opacity: 1;
-        color: red
+        // color: red
       }
     }
   }
-        // &-enter {
+    // &-enter {
     //   opacity: 0;
   
     //   &-active {
@@ -57,7 +67,6 @@
     //     opacity: 1;
     //   }
     // }
-
 }
 
 
