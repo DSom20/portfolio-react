@@ -51,8 +51,9 @@ function AnimatedOpacityText({ startAnimationOnMounting = false, animationDurati
       {/* !!animation-delay is showing up as 3 separate identical rules in dev tools inspector...
       not sure why */}
       <div className={`AnimatedOpacityText-overlay AnimatedOpacityText-overlay-animation 
-                      animation-delay-${animationDelay} animation-duration-${animationDuration}
-                      ${startAnimationOnMounting && 'play'}`}>
+                      
+                      ${startAnimationOnMounting && 'play'}`}
+           style={{"animation-duration": `${animationDuration}s`, "animation-delay": `${animationDelay}s` }}>
       </div>
       {/* <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} ${animationActivated ? "AnimatedOpacityText-overlay-animation" : ''}`} ></div> */}
     </div>

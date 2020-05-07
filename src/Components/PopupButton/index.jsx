@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import './PopupButton.scss';
 
+
+// I only ever use for credits link in footer, so css ends
+// up being hacky to accomodate that specific instance
+// should definitely refactor if ever want to use in
+// multiple spots
 function PopupButton({popupContent, className = '', ...props}) {
   const [isActive, setIsActive] = useState(false);
 

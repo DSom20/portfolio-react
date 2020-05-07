@@ -46,6 +46,99 @@ body {
   }
 }
 
+.start-transparent {
+  opacity: 0;
+}
+
+.slide-down-big {
+  // transform: translateY(-150px);
+  // transform: translateY(-100%);
+  animation: slide-down-big 1s ease forwards;
+}
+
+.slide-up {
+  // transform: translateY(150px);
+  animation: slide-up 1s ease forwards;
+}
+
+.slide-down {
+  // transform: translateY(-150px);
+  transform: translateY(-100%);
+  animation: slide-down 1s .4s ease forwards;
+}
+
+// For top big board that slides down at beginning, underlying board will also be
+// triggered, so give it a longer delay before starting
+.slide-down-big .slide-down {
+  animation-delay: 3s;
+}
+
+.slide-left {
+  transform: translateX(100%);
+  animation: slide-left 1s 2.5s forwards;
+}
+
+.slide-right {
+transform: translateX(-100%);
+animation: slide-right 1s 2.5s forwards;
+}
+
+@keyframes slide-down-big {
+  from {
+    transform: translateY(calc(-100vh - 100%));
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(calc(100vh + 100%));
+    opacity: 1;
+  } to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
 // Utility classes for whiteboard transitions...
 // Not sure where to put them, as they could be used by Md and Sm whiteboards,
 // and currently they're getting sent down from About/Projects/Home ... convoluted
