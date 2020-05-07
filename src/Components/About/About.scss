@@ -90,11 +90,14 @@
     }
   }
 
+  ul {
+    padding-left: 20px;
+  }
+
   &-detail-text {
-    font-size: 18px;
-    line-height: 1.5;
+    // font-size: 18px;
+    // line-height: 1.5;
     margin: 0;
-    // font-weight: 600;
     padding-top: 20px;
 
     span {
@@ -102,7 +105,15 @@
       color: rgb(103, 103, 103);
       font-style: italic;
     }
+
+    @include media-breakpoint-down(md) {
+      span {
+        font-size: 14px;
+      }
+    }
   }
+
+
 
   @include media-breakpoint-down(450px) {
     .About-title-text {

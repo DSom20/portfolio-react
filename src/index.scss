@@ -17,6 +17,19 @@ body {
     font-family: 'Permanent Marker', cursive;
     letter-spacing: 2px;
   }
+
+  p, li {
+    font-size: 18px;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  li {
+    padding-bottom: 9px;
+  }
+
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
@@ -25,6 +38,12 @@ body {
   // Just always keep Y scroll area present to avoid weird hiccup when transition
   // from a page that had it to one that doesn't need it (and vice versa)
   overflow-y: scroll;
+}
+
+@include media-breakpoint-down(md) {
+  p, li {
+    font-size: 16px;
+  }
 }
 
 // Utility classes for whiteboard transitions...

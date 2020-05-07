@@ -105,10 +105,10 @@ function About() {
           <h3 className="About-header-text">My Journey</h3>
           <AnimatedOpacityText transitionOnScroll animationDelay={1}>
             <p className="About-detail-text">I studied humanities at Pepperdine to explore the big ideas.
-              Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. First on an ambulance, then in SF General's emergency department. Got to work with tons of awesome people along the way. Then I pursued nursing for a bit.
+              Graduated Summa Cum Laude. Then, in search of adventure, an opportunity to help people, and a secure career path, I became an EMT. First on an ambulance, then in SF General's emergency department. Then I pursued nursing for a bit. Got to work with tons of awesome people along the way.
             </p>
             <p className="About-detail-text">
-              Being a healthcare provider was an amazing experience. However, an intrinsic passion for the day-to-day work was missing. So, in search for that passion, I looked into software engineering in my spare time. Did some self-study to confirm I loved it, then made the big switch! Dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
+              In my spare time, I started dabbling in computer science. Took Stanford's free CS106a online course...and loved it! Did some more self-study just to confirm. Then, in pursuit of passion, I made the big switch! I dove into Rithm School's full stack immersive bootcamp. Towards the end, I got an internship with JumpOffCampus, overhauling a near decade-old Ruby on Rails web app from Rails v2 to v5 and incorporating React into the frontend.
             </p>
             <p className="About-detail-text">
               Now, I'm on the hunt for new coding opportunities!
