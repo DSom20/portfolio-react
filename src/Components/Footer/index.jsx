@@ -1,12 +1,26 @@
 import React from 'react';
 import './Footer.scss';
+import PopupButton from '../PopupButton';
 import resumeFile from '../../images/footer/david-sommers-resume-05-2020.pdf';
 
 function Footer() {
+  const creditsPopupContent = (
+    <ul>
+      <li>Cork background derived from photo created by topntp26 - <a href="https://www.freepik.com/free-photo/wood-board-background_1247747.htm#page=1&query=corkboard&position=0">www.freepik.com</a></li>
+      <li>Footer Icons by <a href="https://fontawesome.com/license/free">Font Awesome</a></li>
+      <li>About Me Icons by <a href="https://icons8.com/">Icons8</a></li>
+    </ul>
+  )
   return (
     <div className="Footer">
-      <div id="copyright">
-        © {(new Date(Date.now())).getFullYear()} by David Sommers
+      <div className="Footer-left-container">
+        <div id="copyright">
+          © {(new Date(Date.now())).getFullYear()} by David Sommers
+        </div>
+        <div className="Footer-horizontal-divider"></div>
+        <PopupButton className="Footer-popup" popupContent={creditsPopupContent}>
+          CREDITS
+        </PopupButton>
       </div>
       <div className="Footer-link-container">
         <a className="Footer-link" aria-label="link to github account (opens in new tab)" href="https://github.com/DSom20/" rel="noreferrer noopener" target="_blank">

@@ -6,8 +6,18 @@
   height: 40px;
   text-align: center;
 
-  & > :first-child {
+  &-left-container {
     margin-right: auto;
+    display: flex;
+    align-items: center;
+    // background: rgba(177, 177, 177, 0.2);
+
+    & .Footer-horizontal-divider {
+      height: 20px;
+      border-right: 2px solid black;
+      margin: 0 10px;
+    }
+    
   }
 
   &-link-container {
@@ -46,7 +56,7 @@
   
 }
 
-#copyright {
+#copyright, .Footer-popup {
   letter-spacing: 1px;
   text-shadow: 0px 1px 0px lighten(#ceab86, 10%), 
                 0px -1px 0px darken(#ceab86, 30%),
@@ -60,21 +70,46 @@
   // text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
 }
 
-@include media-breakpoint-down(xs) {
+// Was using standard breakpoints, but wanted more fine tune control
+// given that footer stays same always
+// @include media-breakpoint-down(xs) {
+@media (max-width: 600px) {
+
   .Footer {
-    min-height: 30px;
+    height: 60px;
 
     &-link {
-      width: 30px;
+      width: 50px;
 
       & svg {
         height: 70%;
       }
     }
 
+    &-left-container {
+      flex-direction: column;
+
+      & .Footer-horizontal-divider {
+        border-left: 0;
+        height: 2px;
+        width: 20px;
+        border-top: 2px solid black;
+        margin: 5px 0;
+      }
+    }
     #copyright {
+      font-size: 12px;
+    }
+
+    & &-popup {
       font-size: 12px;
     }
   }
 
+}
+
+@media (max-width: 420px) {
+  .Footer-link {
+    width: 30px;
+  }
 }
