@@ -47,7 +47,7 @@ function Home({ delay }) {
             <h2>Check out some of my <AnimatedLink to='/projects'>Projects</AnimatedLink>&nbsp;</h2>
           </AnimatedOpacityText>
           <AnimatedOpacityText startAnimationOnMounting animationDuration={2} animationDelay={7}>
-            <h2>Or read a bit <AnimatedLink to='/about'>About Me</AnimatedLink>&nbsp;</h2>
+            <h2>Or read a bit <AnimatedLink to='/about'>About&nbsp;Me</AnimatedLink>&nbsp;</h2>
           </AnimatedOpacityText>
         </WhiteboardSm>
       </CSSTransition>
