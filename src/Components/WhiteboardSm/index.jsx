@@ -1,7 +1,7 @@
 import React from 'react';
 import './WhiteboardSm.scss';
 
-const WhiteboardSm = React.forwardRef(({intersectedState = null, ...props}, ref) => {
+const WhiteboardSm = React.forwardRef(({intersectedState = null, fullBoardDisplay, ...props}, ref) => {
   // The following allows props.children to potentially initiate their own animations based on when
   // this parent whiteboard first intersected the viewport, rather than requiring their own intersection
   // observer. React.cloneElement takes each child and ADDS the intersectedState prop to the child's props object
@@ -15,7 +15,7 @@ const WhiteboardSm = React.forwardRef(({intersectedState = null, ...props}, ref)
   }
 
   return (
-    <div ref={ref} className={'WhiteboardSm ' + (props.className || '')} id={props.id} style={props.style}>
+    <div ref={ref} className={`WhiteboardSm ${props.className || ''} ${fullBoardDisplay ? 'fullBoardDisplay': ''}`} id={props.id} style={props.style}>
       {children}
     </div>
   )

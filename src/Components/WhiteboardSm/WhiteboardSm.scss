@@ -35,7 +35,15 @@
   border-right: 10px solid black;
   box-shadow: inset 0 0 2px rgba(0,0,0, 1),
               0 0 8px black;
+  
+  &.fullBoardDisplay {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
+
+
+
 //Using ::after and ::before to create wedges on corners, and utilizing box-shadow as
 // border. Border-image was rough to deal with- avoiding for now.
 // ::before -> side borders

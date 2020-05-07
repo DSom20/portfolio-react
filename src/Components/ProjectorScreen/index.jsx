@@ -6,7 +6,7 @@ import './ProjectorScreen.scss';
 // a new empty object each time!!!! (Crashed app because transitionOnScroll continues to be true,
 // but observable has been unmounted at later point, so observer.current.observe(...) wasn't actually
 // observing an Element, which TypeChecking picked up on and crashed app)
-function ProjectorScreen({ animationDelayForLargeScreen, animationDelayForSmallScreen,
+function ProjectorScreen({ fullScreen, animationDelayForLargeScreen, animationDelayForSmallScreen,
    transitionOnScroll = null, transitionOptions, intersectedState = null, ...props }) {
   const [willStartLoading, setWillStartLoading] = useState(false);
   const [hasStartedLoading, setHasStartedLoading] = useState(false);
@@ -85,16 +85,20 @@ function ProjectorScreen({ animationDelayForLargeScreen, animationDelayForSmallS
 
 
   const loadedJSX = (
-    <div className={'ProjectorScreen ProjectorScreen-loaded' + (props.className || '')} id={props.id} style={props.style}>
+    <div className={`ProjectorScreen ProjectorScreen-loaded ${(props.className || '')} ${fullScreen ?  ' fullscreen' : ''}`} id={props.id} style={props.style}>
       {frameJSX}
       {props.children}
     </div>
   )
 
   const loadingJSX = (
-    <div className={`ProjectorScreen ProjectorScreen-loading`}>
-      <p className="ProjectorScreen-countdown">Projector ready in:</p>
-      <p className="ProjectorScreen-countdown">{count}</p>
+    <div className={`ProjectorScreen ProjectorScreen-loading ${fullScreen ?  ' fullscreen' : ''}`}>
+      {/* {props.children}
+      <div className="ProjectorScreen-loading-cover"></div>
+      <div className="ProjectorScreen-loading-countdown"> */}
+        <p className="ProjectorScreen-loading-countdown-text">Projector ready in:</p>
+        <p className="ProjectorScreen-loading-countdown-text">{count}</p>
+      {/* </div> */}
     </div>
   )
 
