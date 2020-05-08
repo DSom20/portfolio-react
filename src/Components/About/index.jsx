@@ -13,24 +13,34 @@ import AnimatedOpacityText from '../AnimatedOpacityText';
 
 
 import profilePic from "../../images/profile/david_profile_pic_square_800.jpg";
+
 import booksIcon from "../../images/aboutme/icons8-books-2-100.png";
 import ambulanceIcon from "../../images/aboutme/icons8-ambulance-reverse-100.png";
 import graduationIcon from "../../images/aboutme/icons8-graduation-cap-100.png";
 import hospitalIcon from "../../images/aboutme/icons8-hospital-100.png";
 import googleIcon from "../../images/aboutme/icons8-google-code-100.png";
+
 import lockIcon from "../../images/aboutme/icons8-lock-100-2.png";
 import gameIcon from "../../images/aboutme/icons8-strategy-game-100.png"; 
 import basketballIcon from "../../images/aboutme/icons8-basketball-net-100.png";
 import volleyballIcon from "../../images/aboutme/icons8-volleyball-player-100.png"; 
 import iceCreamIcon from "../../images/aboutme/icons8-melting-ice-cream-100.png";
+import weddingRingsIcon from "../../images/aboutme/icons8-wedding-rings-100.png"
+
 import javaIcon from "../../images/aboutme/icons8-java-100.png"; 
 import racketIcon from "../../images/aboutme/Racket-logo.svg"; 
 import cIcon from "../../images/aboutme/icons8-c-programming-100.png"; 
 import githubIcon from "../../images/aboutme/icons8-github-100.png"; 
 import htmlIcon from "../../images/aboutme/icons8-html-5-100.png";
 import cssIcon from "../../images/aboutme/icons8-css3-100.png"; 
-import javascriptIcon from "../../images/aboutme/icons8-javascript-logo-100.png";
-import weddingRingsIcon from "../../images/aboutme/icons8-wedding-rings-100.png"
+import javascriptIcon from "../../images/aboutme/icons8-javascript-100.png";
+import nodejsIcon from '../../images/aboutme/icons8-nodejs-100.png';
+import reactIcon from '../../images/aboutme/icons8-react-100.png';
+import reduxIcon from '../../images/aboutme/icons8-redux-100.png';
+import pythonIcon from '../../images/aboutme/icons8-python-100.png';
+import postgresqlIcon from '../../images/aboutme/icons8-postgresql-100.png';
+import rubyOnRailsLogo from '../../images/aboutme/Ruby_On_Rails_Logo.svg';
+
 
 
 function About() {
@@ -71,14 +81,17 @@ function About() {
           <ProjectorScreen frame transitionOnScroll animationDelayForLargeScreen={3500} animationDelayForSmallScreen={4000}>
             <ImageWindow>
               <ImageLineup className="About-coding-images">
-                <ImageSlide src={javaIcon} alt="java logo"/>
-                <ImageSlide src={racketIcon} alt="racket logo"/>
-                <ImageSlide src={cIcon} alt="c logo"/>
-                <ImageSlide src={githubIcon} alt="github logo"/>
                 <ImageSlide src={htmlIcon} alt="html logo"/>
                 <ImageSlide src={cssIcon} alt="css logo"/>
                 <ImageSlide src={javascriptIcon} alt="javascript logo"/>
-                <ImageSlide src={javaIcon} alt="java logo"/>
+                <ImageSlide src={reactIcon} alt="react logo"/>
+                <ImageSlide src={reduxIcon} alt="redux logo"/>
+                <ImageSlide src={nodejsIcon} alt="nodejs logo"/>
+                <ImageSlide src={pythonIcon} alt="python logo"/>
+                <ImageSlide src={postgresqlIcon} alt="postgresql logo"/>
+                <ImageSlide src={rubyOnRailsLogo} alt="ruby on rails logo logo"/>
+                <ImageSlide src={githubIcon} alt="github logo"/>
+                <ImageSlide src={htmlIcon} alt="html logo"/>
               </ImageLineup>
             </ImageWindow>
           </ProjectorScreen>

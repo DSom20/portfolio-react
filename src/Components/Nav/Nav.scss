@@ -64,11 +64,11 @@
   }
   
   &-card-face-front {
-    background: red;
+    background: $primary-color;
   }
   
   &-card-face-back {
-    background: blue;
+    background: $secondary-color;
     transform: rotateX( 180deg );
   }
 
@@ -92,6 +92,7 @@
     animation: none;
   }
 
+  // !!Current Bug in chrome that makes scale >1 to blur text...
   &-link:focus, &-link:hover {
     transform: scale(1.1);
     // color: black;

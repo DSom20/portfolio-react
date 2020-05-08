@@ -1,6 +1,8 @@
+@import '../../utilities';
+
 .UnderlineOnHoverAnchor {
   position: relative;
-  color: blue;
+  color: $primary-color;
   // text-decoration: underline blue solid;
   text-decoration: none;
   // pointer-events: none;
@@ -12,7 +14,7 @@
     height: 114%;
     top: 0px;
     left: 0px;
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid $primary-color;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .4s;

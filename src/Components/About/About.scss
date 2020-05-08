@@ -148,7 +148,8 @@
 
 }
 
-@include vertical-slider-keyframes(codingLineup, 7, 120px);
+// keyframe name, num images (not counting duplicate at end), image height
+@include vertical-slider-keyframes(codingLineup, 10, 120px);
 @include vertical-slider-keyframes(interestsLineup, 6, 120px);
 
 @keyframes careerLineup {

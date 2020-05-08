@@ -1,3 +1,5 @@
+@import '../../utilities';
+
 // Use ::before and ::after elements to create overlaying boxes with bottom border
 // Bottom border starts at scale(0) using left as origin, then transforms to scale(1)
 // One transforms on hover, the other when clicked (component listens for click, 
@@ -8,8 +10,8 @@
 .AnimatedLink {
   position: relative;
   display: inline-block;
-  color: blue;
-  text-decoration: underline blue solid;
+  color: $primary-color;
+  text-decoration: underline $primary-color solid;
 
   &::after {
     content: '';
@@ -18,7 +20,7 @@
     height: 110%;
     top: 0px;
     left: 3px;
-    border-bottom: 3px solid blue;
+    border-bottom: 3px solid $primary-color;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .2s;
@@ -34,7 +36,7 @@
     height: 123%;
     top: 0px;
     left: 7px;
-    border-bottom: 3px solid blue;
+    border-bottom: 3px solid $primary-color;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform .2s;

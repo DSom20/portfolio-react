@@ -57,14 +57,13 @@ body {
 }
 
 .slide-up {
-  // transform: translateY(150px);
   animation: slide-up 1s ease forwards;
 }
 
 .slide-down {
-  // transform: translateY(-150px);
   transform: translateY(-100%);
-  animation: slide-down 1s .4s ease forwards;
+  animation: slide-down 1s .4s ease forwards;  
+  // Note: Short delay time is good when scrolling from top, but not if refresh page while board is already in view...then loses overall timing...So could just base overall timing on purely whiteboard md being intersected, or make complex logic to see whether whiteboard sm is visible on page load, and then for those above it want to if intersected from scroll up/100%threshold...not worth it
 }
 
 // For top big board that slides down at beginning, underlying board will also be

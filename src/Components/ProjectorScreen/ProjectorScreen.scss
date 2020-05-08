@@ -86,7 +86,8 @@
 
   &#{&}-loaded {
     opacity: 1;
-    background-color: rgba(36, 36, 36, 0.687);
+    // background-color: rgba(36, 36, 36, 0.687);
+    background-color: darken(#bddef4, 50%);
     // background-color: white;
     // transform: scale(0);
     // animation: to-scale-100 5s forwards;
