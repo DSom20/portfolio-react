@@ -59,11 +59,11 @@ function Projects() {
         <WhiteboardSm className="upper-z-board">
           <h2 className="Projects-title">Microblog</h2>
           <AnimatedOpacityText animationDelay={1}>
-            <p className="Projects-tech">React, Redux, React-Bootstrap, Express, RESTful API, PostgreSQL</p>
+            <p className="Projects-tech">React, Redux, Redux-Thunk, React-Bootstrap, Express, RESTful API, PostgreSQL</p>
             <p className="Projects-description">
               Microblog is a blogging app where users can create, edit, and delete
               posts, create and delete comments for each post, and like/dislike posts.
-              It uses Redux to prevent some prop-drilling and excessive API requests.
+              It uses Redux to prevent some prop-drilling and excessive API requests, utilizing Redux-Thunk for async action creators, and the combineReducers function to use multiple reducers for separation of concerns.
               React-Bootstrap is used for styling, and there's even a little list
               reordering animation thanks to React-Flip-Toolkit for when the post
               voting hiearchy changes. [No authentication- fully open source blog :) ]
