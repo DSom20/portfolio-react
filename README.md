@@ -2,6 +2,8 @@
 
 This is a portfolio website created with React. It is a single page app thanks to React Router, uses Sass stylesheets, and has some cool transition animations thanks in part to React-Transition-Group and the IntersectionObserver API. 
 
+See it live at https://davidcsommers.dev/
+
 ## To Run Locally:
 1. Clone repo and `cd` into it
 2. `npm install`
