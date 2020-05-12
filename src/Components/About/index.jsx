@@ -55,8 +55,8 @@ function About() {
 
   return (
     <WhiteboardLg className="About">
-      {/* p rather than div to allow :nth-child to work properly in WhiteboardMd css */}
-      <p className="About-title-section-container">
+      {/* section rather than div to allow :nth-child to work properly in WhiteboardMd css */}
+      <section className="About-title-section-container">
         <p className="About-title-profile-image-container">
           <img  src={profilePic} alt="headshot of david sommers" height="800px" width="800px"/>
         </p>
@@ -64,7 +64,7 @@ function About() {
         <h1 className="About-title-text">
           About Me
         </h1>
-      </p>
+      </section>
       <IntersectionObserverWhiteboardMd animationClassName="slide-down-big">
         <WhiteboardSm className="upper-z-board">
           <h3 className="About-header-text">What I Do</h3>
