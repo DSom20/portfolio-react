@@ -53,7 +53,7 @@ function AnimatedOpacityText({ startAnimationOnMounting = false, animationDurati
       <div className={`AnimatedOpacityText-overlay AnimatedOpacityText-overlay-animation 
                       
                       ${startAnimationOnMounting && 'play'}`}
-           style={{"animation-duration": `${animationDuration}s`, "animation-delay": `${animationDelay}s` }}>
+           style={{"animationDuration": `${animationDuration}s`, "animationDelay": `${animationDelay}s` }}>
       </div>
       {/* <div className={`AnimatedOpacityText-overlay animation-delay-${animationDelay} ${animationActivated ? "AnimatedOpacityText-overlay-animation" : ''}`} ></div> */}
     </div>
