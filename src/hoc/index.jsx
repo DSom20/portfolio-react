@@ -18,7 +18,13 @@ function withIntersectionObserver(WrappedComponent) {
     }
   
     useEffect(() => {
-      let options = transitionOptions || {};
+      
+      let basicIntersectionOptions = {
+        root: null,
+        rootMargin: "-80px", // might want to change this value at some point...
+        threshold: 0
+      }
+      let options = transitionOptions || basicIntersectionOptions;
       let intersectionHandler = (entries,observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {

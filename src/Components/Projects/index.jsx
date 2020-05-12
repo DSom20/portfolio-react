@@ -9,6 +9,8 @@ import AnimatedOpacityText from '../AnimatedOpacityText';
 import ProjectorScreen from '../ProjectorScreen';
 import UnderlineOnHoverAnchor from '../UnderlineOnHoverAnchor';
 import joblyGif from '../../images/projects/jobly.gif';
+import microblogGif from '../../images/projects/microblog-gif-500.gif'
+import whiteboardProjectGif from '../../images/projects/portfolio-whiteboard-gif-500.gif';
 
 function Projects() {
   return (
@@ -49,17 +51,22 @@ function Projects() {
       </IntersectionObserverWhiteboardMd>
       <IntersectionObserverWhiteboardMd animationClassName="slide-up">
         <IntersectionObserverWhiteboardSm animationClassName="slide-left">
-          <ProjectorScreen transitionOnScroll animationDelayForLargeScreen={3500}
-            animationDelayForSmallScreen={1400}>
-            <p>This is board 3</p>
+          <ProjectorScreen fullScreen transitionOnScroll animationDelayForLargeScreen={3500}
+            animationDelayForSmallScreen={1400} style={{"background-color": "white"}}>
+            <img className="Projects-image" src={microblogGif} alt="gif of microblog app demo usage"/>
           </ProjectorScreen>
         </IntersectionObserverWhiteboardSm>
         <WhiteboardSm className="upper-z-board">
           <h2 className="Projects-title">Microblog</h2>
           <AnimatedOpacityText animationDelay={1}>
-            <p className="Projects-tech">React, Redux, Express, RESTful API, PostgreSQL</p>
+            <p className="Projects-tech">React, Redux, React-Bootstrap, Express, RESTful API, PostgreSQL</p>
             <p className="Projects-description">
-              Microblog description goes here.
+              Microblog is a blogging app where users can create, edit, and delete
+              posts, create and delete comments for each post, and like/dislike posts.
+              It uses Redux to prevent some prop-drilling and excessive API requests.
+              React-Bootstrap is used for styling, and there's even a little list
+              reordering animation thanks to React-Flip-Toolkit for when the post
+              voting hiearchy changes. [No authentication- fully open source blog :) ]
             </p>
             <div className="Projects-links">
               <UnderlineOnHoverAnchor className="Projects-links-link" href="https://microblog.demo.davidcsommers.dev/">
@@ -79,7 +86,7 @@ function Projects() {
         <WhiteboardSm className="upper-z-board">
           <h2 className="Projects-title">Portfolio: Sliding Whiteboards Style</h2>
           <AnimatedOpacityText animationDelay={1}>
-            <p className="Projects-tech">React, React Transition Group, React Router, IntersectionObserver, Sass</p>
+            <p className="Projects-tech">React, React Router, React Transition Group, IntersectionObserver, Sass</p>
             <p className="Projects-description">
               This website! I had some fun with transitions and replicating a
               lecture-hall styled sliding whiteboard system. React Transition 
@@ -98,9 +105,9 @@ function Projects() {
           </AnimatedOpacityText>
         </WhiteboardSm>
         <IntersectionObserverWhiteboardSm animationClassName="slide-right">
-          <ProjectorScreen transitionOnScroll animationDelayForLargeScreen={3500}
-            animationDelayForSmallScreen={1400}>
-            <p>This is board 3</p>
+          <ProjectorScreen fullScreen transitionOnScroll animationDelayForLargeScreen={3500}
+            animationDelayForSmallScreen={1400}  style={{"background-color": "white"}}>
+            <img className="Projects-image" src={whiteboardProjectGif} alt="gif of whiteboard portfolio app demo usage"/>
           </ProjectorScreen>
         </IntersectionObserverWhiteboardSm>
 
