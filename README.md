@@ -11,7 +11,7 @@ See it live at https://davidcsommers.dev/
 
 ## Tech Stack
 
-1. React - FE JS Framework (bootstrapped with create-react-app)
+1. React - Front-end JS Framework (bootstrapped with create-react-app)
 2. React-Router - Library to create single page app
 3. React-Transition-Group - Library to help with transition animations on route changes
 4. Node-Sass - to use .scss stylesheets and utilize css preprocessing
