@@ -1,4 +1,4 @@
-# Portfolio: Whiteboard Edition
+# Portfolio: Sliding Whiteboard Edition
 
 This is a portfolio website created with React. It is a single page app thanks to React Router, uses Sass stylesheets, and has some cool transition animations thanks in part to React-Transition-Group and the IntersectionObserver API. 
 
