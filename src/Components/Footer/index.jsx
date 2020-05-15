@@ -9,6 +9,7 @@ function Footer() {
       <li>Cork background derived from photo created by topntp26 - <a href="https://www.freepik.com/free-photo/wood-board-background_1247747.htm#page=1&query=corkboard&position=0">www.freepik.com</a></li>
       <li>Footer icons from <a href="https://fontawesome.com/license/free">Font Awesome</a></li>
       <li>About Me icons from <a href="https://icons8.com/">Icons8</a></li>
+      <li>Faviocon created at <a href="https://favicon.io/" title="Favicon.io">Favicon.io</a></li>
     </ul>
   )
   return (
